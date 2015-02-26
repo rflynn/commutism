@@ -2,6 +2,7 @@
 # vim: set ts=4 et:
 
 from flask import Flask, jsonify, make_response, render_template, request
+from flask.ext.cors import CORS
 
 import json
 import random
@@ -13,6 +14,8 @@ from urlparse import urlparse
 # flask app core
 app = Flask(__name__, static_url_path='')
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
+
+cors = CORS(app)
 
 # strip whitespace after template rendering
 app.jinja_env.trim_blocks = True
