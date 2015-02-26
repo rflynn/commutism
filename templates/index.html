@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+
+body {
+    font: 11px/1.0 "Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin: 10px 0 0 0;
+}
+
+</style>
+</head>
+<body>
+
+<div id="content">
+
+    <h1 id="loc"></h1>
+
+</div>
+
+<script>
+
+function positionCallback(pos)
+{
+    var ts = pos.timestamp;
+    var coords = pos.coords;
+    var lat = coords.latitude;
+    var long_ = coords.longitude;
+    var acc = coords.accuracy;
+    console.log('track', ts, coords, lat, long_, acc);
+    document.getElementById('loc').innerText = '' + lat + ', ' + long_;
+    var req = new XMLHttpRequest();
+    var url = ('http://bidx.co:80/api/v0/track/me'
+                + '?lat=' + lat
+                + '&long=' + long_
+                + '&acc=' + acc
+               );
+
+    // TODO: on failure (we're on the subway; start caching data clientside?)
+
+    req.open('GET', url, true);
+    req.onreadystatechange = function () {
+        switch (req.readyState) {
+        case 4:
+            switch (req.status) {
+            case 200:
+                console.log('done', req);
+                break;
+            default:
+                console.log('error', req);
+                break;
+            }
+            break;
+        default:
+            //console.log('readyState', req.readyState, req);
+            break;
+        }
+    }
+    req.send();
+}
+
+if (navigator && navigator.geolocation) {
+    console.log('tracking...');
+    navigator.geolocation.watchPosition(positionCallback,
+                                        function(){},
+                                        {
+                                            desiredAccuracy: 0,
+                                            enableHighAccuracy: true,
+                                            frequency: 60 * 1000,
+                                            maximumAge: 0,
+                                            timeout: 5000
+                                        });
+}
+
+</script>
+
+</body>
+</html>
