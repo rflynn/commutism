@@ -4,6 +4,7 @@
 from flask import Flask, jsonify, make_response, render_template, request
 from flask.ext.cors import CORS
 
+import datetime
 import json
 import random
 import sqlite3
@@ -14,6 +15,7 @@ from urlparse import urlparse
 # flask app core
 app = Flask(__name__, static_url_path='')
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
+app.config['PERMANENT_SESSION_LIFETIME'] = datetime.timedelta(days=3650)
 
 cors = CORS(app)
 
@@ -25,6 +27,12 @@ app.jinja_env.lstrip_blocks = True
 dbx = sqlite3.connect('./commutual.sqlite3', check_same_thread=False)
 dbx.isolation_level = 'DEFERRED'
 dbx.row_factory = sqlite3.Row
+
+def maybefloat(s):
+    try:
+        return float(s)
+    except:
+        return None
 
 def newuid():
     return str((long(time.time()) << 31) | random.getrandbits(31))
@@ -59,19 +67,21 @@ def usertrack(db, request, uid):
     lat = float(request.args.get('lat'))
     long_ = float(request.args.get('long'))
     acc = int(float(request.args.get('acc')))
+    speed = maybefloat(request.args.get('speed'))
     uid = long(uid)
     c = db.cursor()
     c.execute('''
-insert into usertrack (serverts, ts, uid, lat, long_, acc)
-values                (?,        ?,  ?,   ?,   ?,     ?);
+insert into usertrack (serverts, ts, uid, lat, long_, acc, speed)
+values                (?,        ?,  ?,   ?,   ?,     ?,   ?);
 ''',
-              (now, ts, uid, lat, long_, acc))
+              (now, ts, uid, lat, long_, acc, speed))
     db.commit()
     c.close()
 
 @app.route('/api/v0/track/me')
 def track():
     uid = req2uid(request)
+    print request.headers
     usertrack(dbx, request, uid)
     resp = make_response('')
     return dotrack(resp, uid)
@@ -94,7 +104,7 @@ and ts >= strftime('%s','now') - (24*60*60)
 @app.route('/api/v0/me/today', methods=['GET'])
 def me_24hrs():
     uid = req2uid(request)
-    return jsonify(**{'p':get_user_since(dbx, request.args.get('uid', '3059976424458032865'))})
+    return jsonify(**{'p':get_user_since(dbx, request.args.get('uid', '3060004380151080232'))})
 
 if __name__ == '__main__':
     app.debug = True

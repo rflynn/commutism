@@ -10,6 +10,7 @@ But the MTA isn't a *train* company, it's a *people-mover*.
 It should track people moving through the system!
 
 Why? Because trains running doesn't mean they're moving people well:
+
 1. the trains could be moving slowly
 2. they could be already full by the time they arrive
 3. your platform may be so backed up that you can't get on the next train anyway
@@ -26,3 +27,4 @@ step is to gather data on it.
 Further Reading:
 * http://web.mta.info/nyct/facts/ridership/#chart_s
 * http://web.mta.info/nyct/facts/ridership/ridership_sub.htm
+* http://www.straphangers.org/statesub14/

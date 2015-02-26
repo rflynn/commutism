@@ -11,7 +11,8 @@ create table usertrack (
     uid         bigint  not null,
     lat         float   not null,
     long_       float   not null,
-    acc         integer not null
+    acc         integer not null,
+    speed       float
 );
 
 commit;
