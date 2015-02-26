@@ -1,0 +1,2851 @@
+# ex: set ts=4 et:
+
+# ref: http://web.mta.info/nyct/facts/ridership/#chart_s
+# The New York City subway system has 468 stations – the largest number of
+# public transit subway stations of any system in the world.
+# However, the table of ridership by station linked below lists 421 stations,
+# with stations connected by transfer passageways combined into station complexes,
+# since ridership cannot be accurately allocated to each station in the complex.
+# For example, the 14 St A Line icon C Line icon E Line icon station is combined
+# with the 8 Av L Line icon station. The station names and lines stopping at each
+# station reflect service at the end of 2013.
+
+# ref: http://web.mta.info/nyct/facts/ridership/ridership_sub.htm
+
+NYC:
+    The Bronx:
+        138 St-Grand Concourse:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "4"
+                - "5"
+        149 St-Grand Concourse:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "4"
+                - "5"
+        161 St-Yankee Stadium:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - D
+                - "4"
+        167 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "4"
+        167 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - D
+        170 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "4"
+        170 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - D
+        174 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "5"
+        174-175 Sts:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - D
+        176 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "4"
+        182-183 Sts:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - D
+        183 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "4"
+        219 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "5"
+        225 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "5"
+        231 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+        233 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "5"
+        238 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+        3 Av-138 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "6"
+        3 Av-149 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "5"
+        Allerton Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "5"
+        Baychester Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "5"
+        Bedford Park Blvd:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - D
+        Bedford Park Blvd-Lehman College:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "4"
+        Bronx Park East:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "5"
+        Brook Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "6"
+        Buhre Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "6"
+        Burke Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "5"
+        Burnside Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "4"
+        Castle Hill Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "6"
+        Cypress Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "6"
+        East 143 St-St Mary's St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "6"
+        East 149 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "6"
+        East 180 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "5"
+        Eastchester-Dyre Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "5"
+        Elder Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "6"
+        Fordham Rd:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "4"
+        Fordham Rd:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - D
+        Freeman St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "5"
+        Gun Hill Rd:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "5"
+        Gun Hill Rd:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "5"
+        Hunts Point Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "6"
+        Intervale Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "5"
+        Jackson Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "5"
+        Kingsbridge Rd:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "4"
+        Kingsbridge Rd:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - D
+        Longwood Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "6"
+        Middletown Rd:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "6"
+        Morris Park:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "5"
+        Morrison Av-Soundview:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "6"
+        Mosholu Pkwy:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "4"
+        Mt Eden Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "4"
+        Nereid Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "5"
+        Norwood-205 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - D
+        Parkchester:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "6"
+        Pelham Bay Park:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "6"
+        Pelham Pkwy:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "5"
+        Pelham Pkwy:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "5"
+        Prospect Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "5"
+        Simpson St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "5"
+        St Lawrence Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "6"
+        Tremont Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - D
+        Van Cortlandt Park-242 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+        Wakefield-241 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+        West Farms Sq-East Tremont Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "5"
+        Westchester Sq-East Tremont Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "6"
+        Whitlock Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "6"
+        Woodlawn:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "4"
+        Zerega Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "6"
+    Brooklyn:
+        15 St-Prospect Park:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - F
+                - G
+        18 Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - D
+        18 Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - F
+        18 Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - N
+        20 Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - D
+        20 Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - N
+        25 Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - D
+        25 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - R
+        36 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - D
+                - N
+                - R
+        4 Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - F
+                - G/9 St
+                - R
+        45 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - R
+        50 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - D
+        53 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - R
+        55 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - D
+        59 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - N
+                - R
+        7 Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - Q
+        7 Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - F
+                - G
+        71 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - D
+        77 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - R
+        79 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - D
+        8 Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - N
+        86 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - N
+        86 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - R
+        9 Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - D
+        Alabama Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - J
+        Atlantic Av- Barclays Ctr:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - Q
+                - "2"
+                - "3"
+                - "4"
+                - 5D
+                - N
+                - R
+        Atlantic Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - L
+        Avenue:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - H
+                - Q
+        Avenue:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - I
+                - F
+        Avenue J:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - Q
+        Avenue:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - M
+                - Q
+        Avenue:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - N
+                - F
+        Avenue:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - P
+                - F
+        Avenue:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - U
+                - F
+        Avenue U:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - N
+        Avenue U:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - Q
+        Avenue:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - X
+                - F
+        Bay 50 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - D
+        Bay Pkwy:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - D
+        Bay Pkwy:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - F
+        Bay Pkwy:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - N
+        Bay Ridge Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - R
+        Bay Ridge-95 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - R
+        Bedford Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - L
+        Bedford-Nostrand Avs:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - G
+        Bergen St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "3"
+        Bergen St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - F
+                - G
+        Beverley Rd:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - Q
+        Beverly Rd:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "5"
+        Brighton Beach:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - Q
+        Broadway:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - G
+        Broadway Junction:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+                - C
+                - J
+                - L
+                - Z
+        Bushwick Av-Aberdeen St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - L
+        Canarsie-Rockaway Pkwy:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - L
+        Carroll St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - F
+                - G
+        Central Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - M
+        Chauncey St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - J
+                - Z
+        Church Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "5"
+        Church Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - Q
+        Church Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - F
+                - G
+        Clark St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "3"
+        Classon Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - G
+        Cleveland St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - J
+        Clinton-Washington Avs:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - C
+        Clinton-Washington Avs:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - G
+        Coney Island-Stillwell Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - D
+                - F
+                - N
+                - Q
+        Cortelyou Rd:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - Q
+        Court St R/Borough Hall:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "3"
+                - "4"
+                - "5"
+        Crescent St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - J
+                - Z
+        Crown Heights-Utica Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "3"
+                - "4"
+        Cypress Hills:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - J
+        DeKalb Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - Q
+                - R
+        DeKalb Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - L
+        Ditmas Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - F
+        East 105 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - L
+        Eastern Pkwy-Brooklyn Museum:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "3"
+        Euclid Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+                - C
+        Flatbush Av-Brooklyn College:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "5"
+        Flushing Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - G
+        Flushing Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - J
+                - M
+        Fort Hamilton Pkwy:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - D
+        Fort Hamilton Pkwy:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - F
+                - G
+        Fort Hamilton Pkwy:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - N
+        Franklin Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "3"
+                - "4"
+                - 5/Botanic Garden
+                - S
+        Franklin Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - C
+                - S
+        Fulton St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - G
+        Gates Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - J
+                - Z
+        Graham Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - L
+        Grand Army Plaza:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "3"
+        Grand St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - L
+        Grant Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+        Greenpoint Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - G
+        Halsey St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - J
+        Halsey St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - L
+        Hewes St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - J
+                - M
+        High St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+                - C
+        Hoyt St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "3"
+        Hoyt-Schermerhorn Sts:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+                - C
+                - G
+        Jay St-MetroTech:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+                - C
+                - F
+                - R
+        Jefferson St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - L
+        Junius St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "3"
+        Kings Hwy:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - Q
+        Kings Hwy:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - F
+        Kings Hwy:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - N
+        Kingston Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "3"
+        Kingston-Throop Avs:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - C
+        Knickerbocker Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - M
+        Kosciuszko St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - J
+        Lafayette Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - C
+        Liberty Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - C
+        Livonia Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - L
+        Lorimer St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - J
+                - M
+        Lorimer St L/Metropolitan Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - G
+        Marcy Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - J
+                - M
+                - Z
+        Montrose Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - L
+        Morgan Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - L
+        Myrtle Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - J
+                - M
+                - Z
+        Myrtle-Willoughby Avs:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - G
+        Myrtle-Wyckoff Avs:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - L
+                - M
+        Nassau Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - G
+        Neck Rd:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - Q
+        Neptune Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - F
+        Nevins St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "3"
+                - "4"
+                - "5"
+        New Lots Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "3"
+        New Lots Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - L
+        New Utrecht Av N/62 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - D
+        Newkirk Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "5"
+        Newkirk Plaza:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - Q
+        Norwood Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - J
+                - Z
+        Nostrand Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "3"
+        Nostrand Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+                - C
+        Ocean Pkwy:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - Q
+        Park Pl:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - S
+        Parkside Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - Q
+        Pennsylvania Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "3"
+        President St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "5"
+        Prospect Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - R
+        Prospect Park:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - Q
+                - S
+        Ralph Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - C
+        Rockaway Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "3"
+        Rockaway Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - C
+        Saratoga Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "3"
+        Sheepshead Bay:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - Q
+        Shepherd Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - C
+        Smith-9 Sts:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - F
+                - G
+        Sterling St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "5"
+        Sutter Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - L
+        Sutter Av-Rutland Rd:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "3"
+        Union St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - R
+        Utica Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+                - C
+        Van Siclen Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "3"
+        Van Siclen Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - C
+        Van Siclen Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - J
+                - Z
+        West 8 St-New York Aquarium:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - F
+                - Q
+        Wilson Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - L
+        Winthrop St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "5"
+        York St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - F
+    Manhattan:
+        1 Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - L
+        103 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+        103 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "6"
+        103 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - C
+        110 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "6"
+        116 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "3"
+        116 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "6"
+        116 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - C
+        116 St-Columbia University:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+        125 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+        125 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "3"
+        125 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "4"
+                - "5"
+                - "6"
+        125 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+                - B
+                - C
+                - D
+        135 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "3"
+        135 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - C
+        137 St-City College:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+        14 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+                - C
+                - E/8 Av
+                - L
+        14 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - F
+                - M
+                - "1"
+                - "2"
+                - 3/6 Av
+                - L
+        14 St-Union Sq:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - L
+                - N
+                - Q
+                - R
+                - "4"
+                - "5"
+                - "6"
+        145 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+        145 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "3"
+        145 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+                - B
+                - C
+                - D
+        155 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - D
+        155 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - C
+        157 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+        163 St-Amsterdam Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - C
+        168 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+                - C
+                - "1"
+        175 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+        18 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+        181 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+        181 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+        190 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+        191 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+        2 Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - F
+        207 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+        215 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+        23 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+        23 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "6"
+        23 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - C
+                - E
+        23 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - F
+                - M
+        23 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - N
+                - R
+        28 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+        28 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "6"
+        28 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - N
+                - R
+        3 Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - L
+        33 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "6"
+        34 St-Herald Square:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - D
+                - F
+                - M
+                - N
+                - Q
+                - R
+        34 St-Penn Station (Red):
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+                - "2"
+                - "3"
+        34 St-Penn Station (Blue):
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+                - C
+                - E
+        42 St-Bryant Pk:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - D
+                - F
+                - M/5 Av
+                - "7"
+        47-50 Sts-Rockefeller Center:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - D
+                - F
+                - M
+        49 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - N
+                - Q
+                - R
+        5 Av-53 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - E
+                - M
+        5 Av-59 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - N
+                - Q
+                - R
+        50 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+        50 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - C
+                - E
+        57 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - F
+        57 St-7 Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - N
+                - Q
+                - R
+        59 St-Columbus Circle:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+                - B
+                - C
+                - D
+                - "1"
+        66 St-Lincoln Center:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+        68 St-Hunter College:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "6"
+        7 Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - D
+                - E
+        72 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+                - "2"
+                - "3"
+        72 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - C
+        77 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "6"
+        79 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+        8 St-New York University:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - N
+                - R
+        81 St-Museum of Natural History:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - C
+        86 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+        86 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "4"
+                - "5"
+                - "6"
+        86 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - C
+        96 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+                - "2"
+                - "3"
+        96 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "6"
+        96 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - C
+        Astor Place:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "6"
+        Bowery:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - J
+                - Z
+        Bowling Green:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "4"
+                - "5"
+        Broad St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - J
+                - Z
+        Broadway-Lafayette St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - D
+                - F
+                - M/Bleecker St
+                - "6"
+        Brooklyn Bridge-City Hall:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "4"
+                - "5"
+                - 6/Chambers St
+                - J
+                - Z
+        Canal St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+        Canal St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+                - C
+                - E
+        Canal St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - J
+                - N
+                - Q
+                - R
+                - Z
+                - "6"
+        Cathedral Pkwy-110 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+        Cathedral Pkwy-110 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - C
+        Central Park North-110 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "3"
+        Chambers St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+                - "2"
+                - "3"
+        Chambers St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+                - C/WTC
+                - E/Park Place
+                - "2"
+                - "3"
+        Christopher St-Sheridan Sq:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+        City Hall:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - R
+        Cortlandt St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+        Cortlandt St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - R
+        Delancey St F/Essex St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - J
+                - M
+                - Z
+        Dyckman St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+        Dyckman St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+        East Broadway:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - F
+        Franklin St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+        Fulton St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+                - C
+                - J
+                - Z
+                - "2"
+                - "3"
+                - "4"
+                - "5"
+        Grand Central-42 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - S
+                - "4"
+                - "5"
+                - "6"
+                - "7"
+        Grand St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - B
+                - D
+        Harlem-148 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "3"
+        Houston St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+        Inwood-207 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+        Lexington Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                -  N
+                - Q
+                - R/59 St
+                - "4"
+                - "5"
+                - "6"
+        Lexington Av-53 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - E
+                - M/51 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "6"
+        Lexington Av-63 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - F
+        Marble Hill-225 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+        Prince St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - N
+                - R
+        Rector St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "1"
+        Rector St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - R
+        Roosevelt Island:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - F
+        South Ferry1/Whitehall St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - R
+        Spring St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "6"
+        Spring St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - C
+                - E
+        Times Sq-42 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - N
+                - Q
+                - R
+                - S
+        Wall St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "2"
+                - "3"
+        Wall St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "4"
+                - "5"
+        West 4 St-Washington Sq:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+                - B
+                - C
+                - D
+                - E
+                - F
+                - M
+    Queens:
+        103 St-Corona Plaza:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "7"
+        104 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+        104 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - J
+                - Z
+        111 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "7"
+        111 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+        111 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - J
+        121 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - J
+                - Z
+        169 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - F
+        21 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - G
+        21 St-Queensbridge:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - F
+        30 Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - N
+                - Q
+        33 St-Rawson St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "7"
+        36 Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - N
+                - Q
+        36 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - M
+                - R
+        39 Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - N
+                - Q
+        40 St-Lowery St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "7"
+        46 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - M
+                - R
+        46 St-Bliss St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "7"
+        52 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "7"
+        63 Dr-Rego Park:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - M
+                - R
+        65 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - M
+                - R
+        67 Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - M
+                - R
+        69 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "7"
+        74-Bway 7/Jackson Hts-Roosevelt Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - E
+                - F
+                - M
+                - R
+        75 Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - E
+                - F
+        75 St-Elderts Ln:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - J
+                - Z
+        80 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+        82 St-Jackson Hts:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "7"
+        85 St-Forest Pkwy:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - J
+        88 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+        90 St-Elmhurst Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "7"
+        Aqueduct Racetrack:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+        Aqueduct-North Conduit Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+        Astoria Blvd:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - N
+                - Q
+        Astoria-Ditmars Blvd:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - N
+                - Q
+        Beach 105 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+                - S
+        Beach 25 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+        Beach 36 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+        Beach 44 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+        Beach 60 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+        Beach 67 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+        Beach 90 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+                - S
+        Beach 98 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+                - S
+        Briarwood-Van Wyck Blvd:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - E
+                - F
+        Broad Channel:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+                - S
+        Broadway:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - N
+                - Q
+        Court Sq:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - E
+                - G
+                - M
+                - "7"
+        Elmhurst Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - M
+                - R
+        Far Rockaway-Mott Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+        Flushing-Main St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "7"
+        Forest Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - M
+        Forest Hills-71 Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - E
+                - F
+                - M
+                - R
+        Fresh Pond Rd:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - M
+        Grand Av-Newtown:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - M
+                - R
+        Howard Beach-JFK Airport:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+        Hunters Point Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "7"
+        Jamaica Center-Parsons-Archer:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - E
+                - J
+                - Z
+        Jamaica-179 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - F
+        Jamaica-Van Wyck:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - E
+        Junction Blvd:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "7"
+        Kew Gardens-Union Turnpike:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - E
+                - F
+        Mets-Willets Point:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "7"
+        Middle Village-Metropolitan Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - M
+        Northern Blvd:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - M
+                - R
+        Ozone Park-Lefferts Blvd:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+        Parsons Blvd:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - F
+        Queens Plaza:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - E
+                - M
+                - R
+        Queensboro Plaza:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - N
+                - Q
+        Rockaway Blvd:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+        Rockaway Park-Beach 116 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - A
+                - S
+        Seneca Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - M
+        Steinway St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - M
+                - R
+        Sutphin Blvd:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - F
+        Sutphin Blvd-Archer Av-JFK Airport:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - E
+                - J
+                - Z
+        Vernon Blvd-Jackson Av:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "7"
+        Woodhaven Blvd:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - J
+                - Z
+        Woodhaven Blvd:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - M
+                - R
+        Woodside-61 St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
+                - "7"
