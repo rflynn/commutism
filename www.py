@@ -1,9 +1,9 @@
 #!/usr/bin/env python2.7
 # vim: set ts=4 et:
 
-from flask import Flask, render_template, request, redirect, url_for, make_response
+from flask import Flask, jsonify, make_response, render_template, request
 
-from datetime import date, datetime, timedelta
+import json
 import random
 import sqlite3
 import time
@@ -12,6 +12,7 @@ from urlparse import urlparse
 
 # flask app core
 app = Flask(__name__, static_url_path='')
+app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
 
 # strip whitespace after template rendering
 app.jinja_env.trim_blocks = True
@@ -34,21 +35,34 @@ def dotrack(response, uid):
 
 @app.route('/', methods=['GET'])
 def root():
-    #return 'Hello, world!'
-    #return 'Hello from Flask! (%s)' % datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     uid = req2uid(request)
     resp = make_response(render_template('index.html'))
     return dotrack(resp, uid)
 
+@app.route('/map', methods=['GET'])
+def map_():
+    uid = req2uid(request)
+    resp = make_response(render_template('map.html'))
+    return dotrack(resp, uid)
+
 def usertrack(db, request, uid):
-    ts = int(time.time())
+    # interesting: iPhones will save up XMLHttpRequests and fire them off in batches
+    # this means the client ts can differ from the serverside and be legit... we're being sent
+    # older data. if we record the timestamp serverside the datapoints don't line up..
+    # however, we should limit how far back the ts's are allowed to be sent from...
+    # TODO: send ts in UTC, record server ts separately and enforce clientside tses within a given limit...
+    now = int(time.time())
+    ts = int(request.args.get('ts') or now)
     lat = float(request.args.get('lat'))
     long_ = float(request.args.get('long'))
     acc = int(float(request.args.get('acc')))
     uid = long(uid)
     c = db.cursor()
-    c.execute('insert into usertrack (ts, uid, lat, long_, acc) values (?, ?, ?, ?, ?);',
-              (ts, uid, lat, long_, acc))
+    c.execute('''
+insert into usertrack (serverts, ts, uid, lat, long_, acc)
+values                (?,        ?,  ?,   ?,   ?,     ?);
+''',
+              (now, ts, uid, lat, long_, acc))
     db.commit()
     c.close()
 
@@ -58,6 +72,26 @@ def track():
     usertrack(dbx, request, uid)
     resp = make_response('')
     return dotrack(resp, uid)
+
+def get_user_since(db, uid):
+    uid = long(uid)
+    c = db.cursor()
+    c.execute('''
+select ts, lat, long_, acc
+from usertrack
+where uid=?
+and ts >= strftime('%s','now') - (24*60*60)
+''', (uid,))
+    rows = c.fetchall()
+    db.commit()
+    c.close()
+    return [[r['ts'], round(r['lat'], 6), round(r['long_'], 6), r['acc']]
+                for r in rows]
+
+@app.route('/api/v0/me/today', methods=['GET'])
+def me_24hrs():
+    uid = req2uid(request)
+    return jsonify(**{'p':get_user_since(dbx, request.args.get('uid', '3059976424458032865'))})
 
 if __name__ == '__main__':
     app.debug = True

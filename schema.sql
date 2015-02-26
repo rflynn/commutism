@@ -6,6 +6,7 @@ begin;
 drop table if exists usertrack;
 create table usertrack (
     id          integer primary key autoincrement,
+    serverts    integer not null,
     ts          integer not null,
     uid         bigint  not null,
     lat         float   not null,

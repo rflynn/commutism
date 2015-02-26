@@ -16,6 +16,7 @@ body {
 <div id="content">
 
     <h1 id="loc"></h1>
+    <h1 id="errmsg" style="color:red"></h1>
 
 </div>
 
@@ -28,13 +29,16 @@ function positionCallback(pos)
     var lat = coords.latitude;
     var long_ = coords.longitude;
     var acc = coords.accuracy;
+    var speed = coords.speed;
     console.log('track', ts, coords, lat, long_, acc);
     document.getElementById('loc').innerText = '' + lat + ', ' + long_;
+    document.getElementById('errmsg').innerText = ''; // reset
     var req = new XMLHttpRequest();
     var url = ('http://bidx.co:80/api/v0/track/me'
                 + '?lat=' + lat
                 + '&long=' + long_
                 + '&acc=' + acc
+                + '&speed=' + speed
                );
 
     // TODO: on failure (we're on the subway; start caching data clientside?)
@@ -63,7 +67,9 @@ function positionCallback(pos)
 if (navigator && navigator.geolocation) {
     console.log('tracking...');
     navigator.geolocation.watchPosition(positionCallback,
-                                        function(){},
+                                        function(e){
+                                            document.getElementById('errmsg').innerText = e;
+                                        },
                                         {
                                             desiredAccuracy: 0,
                                             enableHighAccuracy: true,
