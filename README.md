@@ -1,6 +1,7 @@
 
-Working commute lamentation
-the solution: computatation
+Subway reliability has been down recently. We bitch and whine, but what can we actually do?
+
+We can make smarter decisions, but for that we need better data and tools.
 
 So, the MTA has an [API to tracks trains](http://apps.mta.info/traintime/)
 and it can be used to generate [pretty visualizations](http://www.livetrain.nyc/)
