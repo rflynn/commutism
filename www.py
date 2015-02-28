@@ -37,8 +37,17 @@ def maybefloat(s):
 def newuid():
     return str((long(time.time()) << 31) | random.getrandbits(31))
 
+# TODO: save in Redis or sumthn
+Uidh = dict()
+
+def xuidh2uid(request):
+    xuidh = request.headers.get('X-Uidh')
+    if not xuidh:
+        return None
+    return Uidh.get(xuidh)
+
 def req2uid(request):
-    return request.cookies.get('uid') or newuid()
+    return request.cookies.get('uid') or xuidh2uid(request) or newuid()
 
 def dotrack(response, uid):
     response.set_cookie('uid', uid)
@@ -48,6 +57,12 @@ def dotrack(response, uid):
 def root():
     uid = req2uid(request)
     resp = make_response(render_template('index.html'))
+    return dotrack(resp, uid)
+
+@app.route('/latency', methods=['GET'])
+def latency_():
+    uid = req2uid(request)
+    resp = make_response(render_template('latency.html'))
     return dotrack(resp, uid)
 
 @app.route('/map', methods=['GET'])
@@ -64,8 +79,8 @@ def usertrack(db, request, uid):
     # TODO: send ts in UTC, record server ts separately and enforce clientside tses within a given limit...
     now = int(time.time())
     ts = int(request.args.get('ts') or now)
-    lat = float(request.args.get('lat'))
-    long_ = float(request.args.get('long'))
+    lat = round(float(request.args.get('lat')), 6)
+    long_ = round(float(request.args.get('long')), 6)
     acc = int(float(request.args.get('acc')))
     speed = maybefloat(request.args.get('speed'))
     uid = long(uid)
@@ -86,6 +101,16 @@ def track():
     resp = make_response('')
     return dotrack(resp, uid)
 
+@app.route('/robots.txt')
+def robots():
+    print request.headers
+    resp = make_response('''User-agent: *
+Crawl-delay: 10
+Disallow: /api/
+''')
+    resp.headers['Content-Type'] = 'text/plain'
+    return resp
+
 def get_user_since(db, uid):
     uid = long(uid)
     c = db.cursor()
@@ -93,10 +118,9 @@ def get_user_since(db, uid):
 select ts, lat, long_, acc
 from usertrack
 where uid=?
-and ts >= strftime('%s','now') - (24*60*60)
+and ts >= strftime('%s','now') - (5*24*60*60)
 ''', (uid,))
     rows = c.fetchall()
-    db.commit()
     c.close()
     return [[r['ts'], round(r['lat'], 6), round(r['long_'], 6), r['acc']]
                 for r in rows]

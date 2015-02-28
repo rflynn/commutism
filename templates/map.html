@@ -20,7 +20,7 @@
 function initialize() {
   var mapOptions = {
     zoom: 3,
-    center: new google.maps.LatLng(0, -180),
+    center: new google.maps.LatLng(40.7, 74),
     mapTypeId: google.maps.MapTypeId.TERRAIN
   };
 
@@ -73,7 +73,7 @@ function initialize() {
 
                 flightPath.setMap(map);
                 map.fitBounds(bounds);
-                
+
                 break;
             default:
                 console.log('error', req);

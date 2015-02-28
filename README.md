@@ -24,8 +24,18 @@ travel through the city, especially on the subway and especially during
 rush hour; because I want to improve my own commute time, and the first
 step is to gather data on it.
 
+Travel Vectors
+Trav
+
+
+L 4
+De[kalb Ave]
+Bo[wling Green]
+
 Further Reading:
+* [AT&T Network Latency chart](https://ipnetwork.bgtmo.ip.att.net/pws/network_delay.html)
 * http://web.mta.info/nyct/facts/ridership/#chart_s
 * http://web.mta.info/nyct/facts/ridership/ridership_sub.htm
 * http://www.straphangers.org/statesub14/
-* http://www.livetrain.nyc/
+* [Livetrain.nyc](http://www.livetrain.nyc/)
+* [Waze](https://www.waze.com/livemap)
