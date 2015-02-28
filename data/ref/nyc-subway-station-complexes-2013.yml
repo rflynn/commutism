@@ -505,8 +505,8 @@ NYC:
                 - R
         36 St:
             loc:
-                lat: -74.00455
-                long: 40.65445
+                lat: 40.65445
+                long: -74.00455
             edges:
                 - D
                 - N
@@ -614,8 +614,8 @@ NYC:
                 - J
         Atlantic Av- Barclays Ctr:
             loc:
-                lat: -73.978758
-                long: 40.684462
+                lat: 40.684462
+                long: -73.978758
             edges:
                 - "2"
                 - "3"
@@ -788,8 +788,8 @@ NYC:
                 - G
         Broadway Junction:
             loc:
-                lat: -73.903453
-                long: 40.678919
+                lat: 40.678919
+                long: -73.903453
             edges:
                 - A
                 - C
@@ -882,8 +882,8 @@ NYC:
                 - G
         Coney Island-Stillwell Av:
             loc:
-                lat: -73.981139
-                long: 40.577342
+                lat: 40.577342
+                long: -73.981139
             edges:
                 - D
                 - F
@@ -915,8 +915,8 @@ NYC:
                 - Z
         Crown Heights-Utica Av:
             loc:
-                lat: -73.931208
-                long: 40.668758
+                lat: 40.668758
+                long: -73.931208
             edges:
                 - "2"
                 - "3"
@@ -938,8 +938,8 @@ NYC:
                 - R
         DeKalb Av (L):
             loc:
-                lat: -73.919277
-                long: 40.704294
+                lat: 40.704294
+                long: -73.919277
             edges:
                 - L
         Ditmas Av:
@@ -1009,8 +1009,8 @@ NYC:
                 - N
         Franklin Av/Botanic Garden:
             loc:
-                lat: -73.958545
-                long: 40.670711
+                lat: 40.670711
+                long: -73.958545
             edges:
                 - "2"
                 - "3"
@@ -1103,16 +1103,16 @@ NYC:
                 - "3"
         Hoyt-Schermerhorn Sts:
             loc:
-                lat: -73.986142
-                long: 40.689022
+                lat: 40.689022
+                long: -73.986142
             edges:
                 - A
                 - C
                 - G
         Jay St-MetroTech:
             loc:
-                lat: -73.987233
-                long: 40.693681
+                lat: 40.693681
+                long: -73.987233
             edges:
                 - A
                 - C
@@ -1226,8 +1226,8 @@ NYC:
                 - L
         Myrtle Av:
             loc:
-                lat: -73.935285
-                long: 40.696941
+                lat: 40.696941
+                long: -73.935285
             edges:
                 - J
                 - M
@@ -1357,8 +1357,8 @@ NYC:
                 - "5"
         Prospect Av:
             loc:
-                lat: -73.994079
-                long: 40.666789
+                lat: 40.666789
+                long: -73.994079
             edges:
                 - D
                 - N
@@ -1565,16 +1565,16 @@ NYC:
                 - "3"
         125 St (4/5/6):
             loc:
-                lat: -73.937473
-                long: 40.804259
+                lat: 40.804259
+                long: -73.937473
             edges:
                 - "4"
                 - "5"
                 - "6"
         125 St (A/B/C/D):
             loc:
-                lat: -73.952665
-                long: 40.810756
+                lat: 40.810756
+                long: -73.952665
             edges:
                 - A
                 - B
@@ -1622,8 +1622,8 @@ NYC:
                 - L
         14 St-Union Sq:
             loc:
-                lat: -73.990278
-                long: 40.734722
+                lat: 40.734722
+                long: -73.990278
             edges:
                 - L
                 - N
@@ -1680,8 +1680,8 @@ NYC:
                 - C
         168 St:
             loc:
-                lat: -73.939791
-                long: 40.841022
+                lat: 40.841022
+                long: -73.939791
             edges:
                 - A
                 - C
@@ -1748,8 +1748,8 @@ NYC:
                 - "1"
         23 St:
             loc:
-                lat: 0.0
-                long: 0.0
+                lat: 40.740169
+                long: -73.98644
             edges:
                 - "6"
         23 St:
@@ -1781,8 +1781,8 @@ NYC:
                 - "1"
         28 St:
             loc:
-                lat: 0.0
-                long: 0.0
+                lat: 40.746389
+                long: -73.981944
             edges:
                 - "6"
         28 St:
@@ -1800,14 +1800,14 @@ NYC:
                 - L
         33 St:
             loc:
-                lat: 0.0
-                long: 0.0
+                lat: 40.746389
+                long: -73.981944
             edges:
                 - "6"
         34 St-Herald Square:
             loc:
-                lat: -73.987985
-                long: 40.749338
+                lat: 40.749338
+                long: -73.987985
             edges:
                 - B
                 - D
@@ -1818,24 +1818,24 @@ NYC:
                 - R
         34 St-Penn Station (Red):
             loc:
-                lat: -73.991
-                long: 40.751
+                lat: 40.751
+                long: -73.991
             edges:
                 - "1"
                 - "2"
                 - "3"
         34 St-Penn Station (Blue):
             loc:
-                lat: -73.993521
-                long: 40.752166
+                lat: 40.752166
+                long: -73.993521
             edges:
                 - A
                 - C
                 - E
         42 St-Bryant Pk:
             loc:
-                lat: -73.984208
-                long: 40.754799
+                lat: 40.754799
+                long: -73.984208
             edges:
                 - B
                 - D
@@ -1903,8 +1903,8 @@ NYC:
                 - R
         59 St-Columbus Circle:
             loc:
-                lat: -73.981934
-                long: 40.767997
+                lat: 40.767997
+                long: -73.981934
             edges:
                 - A
                 - B
@@ -1974,16 +1974,16 @@ NYC:
                 - C
         86 St (1,2,3):
             loc:
-                lat: -73.969316
-                long: 40.785286
+                lat: 40.785286
+                long: -73.969316
             edges:
                 - "1"
                 - "2"
                 - "3"
         86 St (4,5,6):
             loc:
-                lat: -73.955626
-                long: 40.779469
+                lat: 40.779469
+                long: -73.955626
             edges:
                 - "4"
                 - "5"
@@ -1997,8 +1997,8 @@ NYC:
                 - C
         96 St (1/2/3):
             loc:
-                lat: -73.972
-                long: 40.7941
+                lat: 40.7941
+                long: -73.972
             edges:
                 - "1"
                 - "2"
@@ -2018,8 +2018,8 @@ NYC:
                 - C
         Astor Place:
             loc:
-                lat: 0.0
-                long: 0.0
+                lat: 40.729722
+                long: -73.991667
             edges:
                 - "6"
         Bowery:
@@ -2031,8 +2031,8 @@ NYC:
                 - Z
         Bowling Green:
             loc:
-                lat: -74.014521
-                long: 40.704106
+                lat: 40.704106
+                long: -74.014521
             edges:
                 - "4"
                 - "5"
@@ -2051,16 +2051,26 @@ NYC:
                 - B
                 - D
                 - F
-                - M/Bleecker St
-                - "6"
-        Brooklyn Bridge-City Hall:
+                - M
+        Bleecker St:
             loc:
                 lat: 0.0
                 long: 0.0
             edges:
+                - "6"
+        Brooklyn Bridge-City Hall:
+            loc:
+                lat: 40.71326
+                long: -74.00671
+            edges:
                 - "4"
                 - "5"
-                - 6/Chambers St
+                - "6"
+        Chambers St:
+            loc:
+                lat: 0.0
+                long: 0.0
+            edges:
                 - J
                 - Z
         Canal St:
@@ -2184,8 +2194,8 @@ NYC:
                 - "1"
         Fulton St:
             loc:
-                lat: -74.006842
-                long: 40.709719
+                lat: 40.709719
+                long: -74.006842
             edges:
                 - A
                 - C
@@ -2197,8 +2207,8 @@ NYC:
                 - "5"
         Grand Central-42 St:
             loc:
-                lat: -73.976522
-                long: 40.7528
+                lat: 40.7528
+                long: -73.976522
             edges:
                 - S
                 - "4"
@@ -2232,8 +2242,8 @@ NYC:
                 - A
         Lexington Av/59 St:
             loc:
-                lat: -73.9679
-                long: 40.762471
+                lat: 40.762471
+                long: -73.9679
             edges:
                 - "4"
                 - "5"
@@ -2250,8 +2260,8 @@ NYC:
                 - M
         51 St:
             loc:
-                lat: -73.971977
-                long: 40.757075
+                lat: 40.757075
+                long: -73.971977
             edges:
                 - "4"
                 - "6"
@@ -2294,8 +2304,8 @@ NYC:
                 - F
         South Ferry/Whitehall St:
             loc:
-                lat: -74.012833
-                long: 40.702472
+                lat: 40.702472
+                long: -74.012833
             edges:
                 - "1"
                 - N
@@ -2315,8 +2325,8 @@ NYC:
                 - E
         Times Sq-42 St:
             loc:
-                lat: -73.987
-                long: 40.756
+                lat: 40.756
+                long: -73.987
             edges:
                 - "1"
                 - "2"
@@ -2331,22 +2341,22 @@ NYC:
                 - S
         Wall St (2/3):
             loc:
-                lat: -74.009528
-                long: 40.706311
+                lat: 40.706311
+                long: -74.009528
             edges:
                 - "2"
                 - "3"
         Wall St (4/5):
             loc:
-                lat: -74.011717
-                long: 40.70771
+                lat: 40.70771
+                long: -74.011717
             edges:
                 - "4"
                 - "5"
         West 4 St-Washington Sq:
             loc:
-                lat: -74.000945
-                long: 40.731682
+                lat: 40.731682
+                long: -74.000945
             edges:
                 - A
                 - B
@@ -2506,8 +2516,8 @@ NYC:
                 - "7"
         74-Bway Jackson Hts-Roosevelt Av:
             loc:
-                lat: -73.891519
-                long: 40.746764
+                lat: 40.746764
+                long: -73.891519
             edges:
                 - "7"
                 - E
@@ -2560,8 +2570,8 @@ NYC:
                 - "7"
         Aqueduct Racetrack:
             loc:
-                lat: -73.835914
-                long: 40.672086
+                lat: 40.672086
+                long: -73.835914
             edges:
                 - A
         Aqueduct-North Conduit Av:
@@ -2658,8 +2668,8 @@ NYC:
                 - Q
         Court Sq:
             loc:
-                lat: -73.945069
-                long: 40.747615
+                lat: 40.747615
+                long: -73.945069
             edges:
                 - E
                 - G
@@ -2692,8 +2702,8 @@ NYC:
                 - M
         Forest Hills-71 Av:
             loc:
-                lat: -73.844004
-                long: 40.721404
+                lat: 40.721404
+                long: -73.844004
             edges:
                 - E
                 - F
@@ -2726,8 +2736,8 @@ NYC:
                 - "7"
         Jamaica Center-Parsons-Archer:
             loc:
-                lat: -73.799973
-                long: 40.702407
+                lat: 40.702407
+                long: -73.799973
             edges:
                 - E
                 - J
@@ -2790,16 +2800,16 @@ NYC:
                 - F
         Queens Plaza:
             loc:
-                lat: -73.937387
-                long: 40.748915
+                lat: 40.748915
+                long: -73.937387
             edges:
                 - E
                 - M
                 - R
         Queensboro Plaza:
             loc:
-                lat: -73.940344
-                long: 40.750653
+                lat: 40.750653
+                long: -73.940344
             edges:
                 - N
                 - Q
@@ -2831,8 +2841,8 @@ NYC:
                 - R
         Sutphin Blvd:
             loc:
-                lat: -73.80774
-                long: 40.700488
+                lat: 40.700488
+                long: -73.80774
             edges:
                 - F
         Sutphin Blvd-Archer Av-JFK Airport:
