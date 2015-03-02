@@ -8,6 +8,5 @@ argparse==1.2.1
 decorator==3.4.0
 itsdangerous==0.24
 networkx==1.9.1
-python-graph-core==1.8.2
 six==1.9.0
 wsgiref==0.1.2

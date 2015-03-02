@@ -4,23 +4,16 @@
 from math import sqrt
 from pprint import pprint
 
-# TODO: replace pygraph with NetworkX as it supports MultiGraphs, which are needed
-from pygraph.classes.digraph import digraph
-from pygraph.algorithms.searching import breadth_first_search
-from pygraph.algorithms.traversal import traversal
-from pygraph.algorithms.minmax import heuristic_search, \
-                                      minimal_spanning_tree, \
-                                      shortest_path, \
-                                      shortest_path_bellman_ford
+import networkx as nx
 import yaml
-
-SubwayGraphs = dict()
 
 SubwayStations = dict()
 with open('./data/ref/nyc-subway-station-complexes-2013.yml') as f:
     SubwayStations = yaml.load(f)
 
 #pprint(SubwayStations, width=150)
+
+SubwayGraphX = nx.MultiDiGraph()
 
 # build digraphs for each line
 for name, station in SubwayStations['Station'].iteritems():
@@ -30,25 +23,11 @@ for name, station in SubwayStations['Station'].iteritems():
             if type(lines) != type([]):
                 lines = [lines]
             for line in lines:
-                if line not in SubwayGraphs:
-                    SubwayGraphs[line] = digraph()
-                g = SubwayGraphs[line]
-                if name not in g:
-                    g.add_node(name)
-                if to not in g:
-                    g.add_node(to)
-                g.add_edge((name, to))
-                #g.set_edge_weight(name, to, 1) # XXX: for later...
+                SubwayGraphX.add_edge(name, to, key=line)
     else:
         print 'need edges: %s' % name
 
 def latlongdist(x, y):
-    assert x['lat'] != 0.0
-    assert x['long'] != 0.0
-    assert y['lat'] != 0.0
-    assert y['long'] != 0.0
-    #return ((abs(x['lat'] - y['lat'])),
-    #        (abs(x['long'] - y['long'])))
     return sqrt((abs(x['lat'] - y['lat'])**2) +
                 (abs(x['long'] - y['long'])**2))
 
@@ -86,9 +65,9 @@ if __name__ == '__main__':
     pprint(stations_nearest(_171_Stanhope)[:5], width=150)
     pprint(stations_nearest(_80_Broad_St)[:5], width=150)
 
-    g = SubwayGraphs['4']
-    name = 'Bowling Green' # stations_nearest(_80_Broad_St)[1][0]
-    print ''
-    print list(traversal(g, name, 'pre'))
-    print ''
-    print shortest_path(g, name)
+    print 'SubwayGraphX:'
+    print SubwayGraphX.edges(keys=True)
+    print 'paths:'
+    #print nx.shortest_path(SubwayGraphX, source='14 St-Union Sq', target='DeKalb Av (L)')
+    #print nx.shortest_path(SubwayGraphX, source='14 St-Union Sq', target='Bowling Green')
+    print nx.shortest_path(SubwayGraphX, source='Bowling Green', target='DeKalb Av (L)')

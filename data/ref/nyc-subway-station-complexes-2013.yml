@@ -1203,7 +1203,7 @@ Station:
             long: 0.0
         edges:
             Lorimer St/Metropolitan Av: L
-            Grand St: L
+            Grand St (L): L
         lines:
             - L
         borough: Brooklyn
@@ -1215,13 +1215,13 @@ Station:
             - "2"
             - "3"
         borough: Brooklyn
-    Grand St:
+    Grand St (L):
         loc:
             lat: 0.0
             long: 0.0
         edges:
             Graham Av: L
-            Montrose: L
+            Montrose Av: L
         lines:
             - L
         borough: Brooklyn
@@ -1432,7 +1432,7 @@ Station:
             lat: 0.0
             long: 0.0
         edges:
-            Grand St: L
+            Grand St (L): L
             Morgan Av: L
         lines:
             - L
@@ -2664,7 +2664,7 @@ Station:
             - "6"
             - "7"
         borough: Manhattan
-    Grand St:
+    Grand St (B/D):
         loc:
             lat: 0.0
             long: 0.0
