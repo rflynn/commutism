@@ -26,7 +26,7 @@ step is to gather data on it.
 
 Travel Vectors
 Trav
-
+travel options
 
 L 4
 De[kalb Ave]
@@ -39,3 +39,12 @@ Further Reading:
 * http://www.straphangers.org/statesub14/
 * [Livetrain.nyc](http://www.livetrain.nyc/)
 * [Waze](https://www.waze.com/livemap)
+
+Travel Options:
+* MTA bus
+* MTA train
+* NYC Taxi
+* Uber
+* https://www.erideshare.com/carpool.php?dstate=NY
+
+
