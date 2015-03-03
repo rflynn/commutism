@@ -40,6 +40,10 @@ Further Reading:
 * [Livetrain.nyc](http://www.livetrain.nyc/)
 * [Waze](https://www.waze.com/livemap)
 
+Reference:
+* https://en.wikipedia.org/wiki/List_of_New_York_City_Subway_lines#Nomenclature
+* https://en.wikipedia.org/wiki/IRT_Broadway_%E2%80%93_Seventh_Avenue_Line
+
 Travel Options:
 * MTA bus
 * MTA train

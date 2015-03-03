@@ -3,7 +3,7 @@
 
 from math import sqrt
 from pprint import pprint
-from itertools import takewhile, groupby
+from itertools import takewhile, groupby, starmap
 
 import networkx as nx
 import yaml
@@ -58,8 +58,8 @@ if __name__ == '__main__':
     print latlong2station((40.704283, -74.011963)) # 80 Broad St
     _171_Stanhope = {'lat': 40.699377, 'long': -73.922061}
     _80_Broad_St = {'lat': 40.704283, 'long': -74.011963}
-    Stations_Nearest_171_Stanhope = stations_nearest(_171_Stanhope)[:4]
-    Stations_Nearest_80_Broad_St = stations_nearest(_80_Broad_St)[:4]
+    Stations_Nearest_171_Stanhope = stations_nearest(_171_Stanhope)[:5]
+    Stations_Nearest_80_Broad_St = stations_nearest(_80_Broad_St)[:5]
 
     print '--------------'
 
@@ -77,15 +77,33 @@ if __name__ == '__main__':
     Trips = [shortest_path(SubwayGraphX, source=x, target=y)
                 for x, y in itertools.product(Stations_Nearest_171_Stanhope,
                                               Stations_Nearest_80_Broad_St)]
-    def less_walking(path):
+
+    def distance_walking(path):
         st1 = SubwayStations['Station'][path[0]]
         st2 = SubwayStations['Station'][path[-1]]
         return ((latlongdist(_171_Stanhope, st1['loc']) +
                  latlongdist(_80_Broad_St, st2['loc'])), len(path))
+
+    def station_distance(st1, st2):
+        dist = latlongdist(SubwayStations['Station'][st1]['loc'],
+                           SubwayStations['Station'][st2]['loc'])
+        print 'station_distance', st1, st2, dist
+        return dist
+
+    def distance_traveled(path):
+        # given a path, calculate the actual distance traveled
+        st1 = SubwayStations['Station'][path[0]]
+        st2 = SubwayStations['Station'][path[-1]]
+        walk_to_first = latlongdist(_171_Stanhope, st1['loc'])
+        walk_from_last = latlongdist(_80_Broad_St, st2['loc'])
+        print list(starmap(station_distance, zip(path, path[1:])))
+        between_stations = sum(starmap(station_distance, zip(path, path[1:])))
+        return walk_to_first + between_stations + walk_from_last
+
     Trips2 = sorted(set(tuple(trip) for trip in Trips if trip),
-                     key=lambda path: less_walking(path),
+                     key=lambda path: distance_traveled(path),
                      reverse=False)
-    Trips3 = [list(x) for x in Trips2]
+    Trips3 = [(round(distance_traveled(x), 5), list(x)) for x in Trips2]
 
     pprint(Trips3, width=500)
 
@@ -102,7 +120,10 @@ if __name__ == '__main__':
     lps2 = [list(y) for x, y in groupby(lps, lambda x: x[0] > 0) if x]
 
     def uniques(l):
-        return (l[0][0], [x[1][0] for x in l] + [l[-1][1][1] if len(l) > 1 else []])
+        x = (l[0][0], [x[1][0] for x in l])
+        if len(l) > 1:
+            x[1].append(l[-1][1][1])
+        return x
 
     lps3 = [uniques(x) for x in lps2]
 

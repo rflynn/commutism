@@ -13,6 +13,8 @@
 # ref: http://web.mta.info/nyct/facts/ridership/ridership_sub.htm
 # ref: http://web.mta.info/maps/submap.html
 
+# TODO: add "6d" and "7d" express lines
+
 Station:
     138 St-Grand Concourse:
         loc:
@@ -840,8 +842,8 @@ Station:
         borough: Brooklyn
     Bedford Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.71772
+            long: -73.95756
         edges:
             1 Av: L
             Lorimer St/Metropolitan Av: L
@@ -850,8 +852,8 @@ Station:
         borough: Brooklyn
     Bedford-Nostrand Avs:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.689587
+            long: -73.953567
         edges:
             Myrtle-Willoughby Avs: G
             Classon Av: G
@@ -874,14 +876,14 @@ Station:
             - F
             - G
         borough: Brooklyn
-    Beverley Rd:
+    Beverley Rd (Q):
         loc:
             lat: 0.0
             long: 0.0
         lines:
             - Q
         borough: Brooklyn
-    Beverly Rd:
+    Beverly Rd (2/5):
         loc:
             lat: 0.0
             long: 0.0
@@ -899,8 +901,8 @@ Station:
         borough: Brooklyn
     Broadway (G):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.705433
+            long: -73.950219
         edges:
             Lorimer St/Metropolitan Av: G
             Flushing Av (G): G
@@ -958,7 +960,7 @@ Station:
             - J
             - Z
         borough: Brooklyn
-    Church Av:
+    Church Av (2/5):
         loc:
             lat: 0.0
             long: 0.0
@@ -966,15 +968,15 @@ Station:
             - "2"
             - "5"
         borough: Brooklyn
-    Church Av:
+    Church Av (B/Q):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.64966
+            long: -73.963646
         lines:
             - B
             - Q
         borough: Brooklyn
-    Church Av:
+    Church Av (F/G):
         loc:
             lat: 0.0
             long: 0.0
@@ -992,8 +994,8 @@ Station:
         borough: Brooklyn
     Classon Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.688839
+            long: -73.960047
         edges:
             Bedford-Nostrand Avs: G
             Clinton-Washington Avs (G): G
@@ -1016,8 +1018,8 @@ Station:
         borough: Brooklyn
     Clinton-Washington Avs (G):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.688058
+            long: -73.96687
         edges:
             Classon Av: G
             Fulton St (G): G
@@ -1078,12 +1080,14 @@ Station:
         lines:
             - J
         borough: Brooklyn
-    DeKalb Av (B/Q/R):
+    DeKalb Av (B/D/N/Q/R):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.690254
+            long: -73.982277
         lines:
             - B
+            - D
+            - N
             - Q
             - R
         borough: Brooklyn
@@ -1121,24 +1125,24 @@ Station:
         borough: Brooklyn
     Euclid Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.675366
+            long: -73.871899
         lines:
             - A
             - C
         borough: Brooklyn
     Flatbush Av-Brooklyn College:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.632361
+            long: -73.947486
         lines:
             - "2"
             - "5"
         borough: Brooklyn
     Flushing Av (G):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.699739
+            long: -73.950176
         edges:
             Broadway (G): G
             Myrtle-Willoughby Avs: G
@@ -1147,8 +1151,8 @@ Station:
         borough: Brooklyn
     Flushing Av (J/M):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.700683
+            long: -73.941979
         edges:
             Lorimer St (J/M): ["J","M"]
             Myrtle Av: ["J","M"]
@@ -1191,16 +1195,17 @@ Station:
         borough: Brooklyn
     Franklin Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.681126
+            long: -73.955712
         lines:
+            - A
             - C
             - S
         borough: Brooklyn
     Fulton St (G):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.686984
+            long: -73.976269
         edges:
             Clinton-Washington Avs (G): G
             Hoyt-Schermerhorn Sts: G
@@ -1217,8 +1222,8 @@ Station:
         borough: Brooklyn
     Graham Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.714509
+            long: -73.944426
         edges:
             Lorimer St/Metropolitan Av: L
             Grand St (L): L
@@ -1235,8 +1240,8 @@ Station:
         borough: Brooklyn
     Grand St (L):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.711906
+            long: -73.940735
         edges:
             Graham Av: L
             Montrose Av: L
@@ -1276,8 +1281,8 @@ Station:
         borough: Brooklyn
     Hewes St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.706669
+            long: -73.953009
         edges:
             Marcy Av: ["J","M"]
             Lorimer St/Metropolitan Av: ["J","M"]
@@ -1287,8 +1292,8 @@ Station:
         borough: Brooklyn
     High St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.699129
+            long: -73.989862
         edges:
             Jay St-MetroTech: ["A","C"]
             Fulton St: ["A","C"]
@@ -1331,8 +1336,8 @@ Station:
         borough: Brooklyn
     Jefferson St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.706994
+            long: -73.923569
         edges:
             DeKalb Av (L): L
             Morgan Av: L
@@ -1385,7 +1390,7 @@ Station:
     Knickerbocker Av:
         loc:
             lat: 40.698731
-            long: 73.918376
+            long: -73.918376
         edges:
             Central Av: M
             Myrtle-Wyckoff Avs: M
@@ -1435,8 +1440,8 @@ Station:
         borough: Brooklyn
     Lorimer St/Metropolitan Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.712752
+            long: -73.951464
         edges:
             Bedford Av: L
             Graham Av: L
@@ -1447,10 +1452,10 @@ Station:
         borough: Brooklyn
     Marcy Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.708361
+            long: -73.957944
         edges:
-            Delancey St F/Essex St: ["J","M","Z"]
+            Delancey St/Essex St: ["J","M","Z"]
             Hewes St: ["J","M"]
             Myrtle Av: ["Z"]
         lines:
@@ -1460,8 +1465,8 @@ Station:
         borough: Brooklyn
     Montrose Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.707612
+            long: -73.939877
         edges:
             Grand St (L): L
             Morgan Av: L
@@ -1470,8 +1475,8 @@ Station:
         borough: Brooklyn
     Morgan Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.706279
+            long: -73.93198
         edges:
             Montrose Av: L
             Jefferson St: L
@@ -1494,8 +1499,8 @@ Station:
         borough: Brooklyn
     Myrtle-Willoughby Avs:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.694631
+            long: -73.949103
         edges:
             Flushing Av (G): G
             Bedford-Nostrand Avs: G
@@ -1505,7 +1510,7 @@ Station:
     Myrtle-Wyckoff Avs:
         loc:
             lat: 40.699511
-            long: 73.911166
+            long: -73.911166
         edges:
             DeKalb Av (L): L
             Seneca Av: M
@@ -1798,13 +1803,16 @@ Station:
         loc:
             lat: 0.0
             long: 0.0
+        edges:
+            Delancey St/Essex St: F
+            Jay St-MetroTech: F
         lines:
             - F
         borough: Brooklyn
     1 Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.731324
+            long: -73.982577
         edges:
             Bedford Av: L
             3 Av: L
@@ -1926,20 +1934,23 @@ Station:
         lines:
             - "1"
         borough: Manhattan
-    14 St (A/C/E/L):
+    14 St/8 Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.739779
+            long: -74.002533
+        edges:
+            6 Av: L
+            14 St-Union Sq: L
         lines:
             - A
             - C
-            - E/8 Av
+            - E
             - L
         borough: Manhattan
-    14 St (1/2/3):
+    14 St/6 Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.737328
+            long: -73.996796
         edges:
             Christopher St-Sheridan Sq: "1"
             18 St: "1"
@@ -1948,15 +1959,10 @@ Station:
             - "1"
             - "2"
             - "3"
-        borough: Manhattan
-    14 St (F/M/L):
-        loc:
-            lat: 0.0
-            long: 0.0
-        lines:
             - F
             - M
             - L
+        borough: Manhattan
     14 St-Union Sq:
         loc:
             lat: 40.734722
@@ -1966,7 +1972,7 @@ Station:
             3 Av: L
             Astor Pl: "6"
             23 St (6): "6"
-            Brooklyn Bridge-City Hall: ["4", "5"]
+            Brooklyn Bridge-City Hall/Chambers St: ["4", "5"]
             Grand Central-42 St: ["4", "5"]
         lines:
             - L
@@ -2088,8 +2094,11 @@ Station:
         borough: Manhattan
     2 Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.723616
+            long: -73.991117
+        edges:
+            Delancey St/Essex St: F
+            Bleecker Street / Broadway - Lafayette Street: F
         lines:
             - F
         borough: Manhattan
@@ -2175,8 +2184,8 @@ Station:
         borough: Manhattan
     3 Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.733243
+            long: -73.987212
         edges:
             1 Av: L
             14 St-Union Sq: L
@@ -2329,6 +2338,16 @@ Station:
         lines:
             - "6"
         borough: Manhattan
+    6 Av:
+        loc:
+            lat: 0.0
+            long: 0.0
+        edges:
+            14 St-Union Sq: L
+            14 St/8 Av: L
+        lines:
+            - L
+        borough: Manhattan
     7 Av:
         loc:
             lat: 0.0
@@ -2454,11 +2473,11 @@ Station:
         borough: Manhattan
     Bowery:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.720299
+            long: -73.994079
         edges:
-            Chambers St (J/Z): ["J","Z"]
-            Delancey St F/Essex St: ["J","Z"]
+            Brooklyn Bridge-City Hall/Chambers St: ["J","Z"]
+            Delancey St/Essex St: ["J","Z"]
         lines:
             - J
             - Z
@@ -2484,55 +2503,46 @@ Station:
             - J
             - Z
         borough: Manhattan
-    Broadway-Lafayette St:
+    Bleecker Street / Broadway - Lafayette Street:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.725833
+            long: -73.994722
+        edges:
+            2 Av: F
+            West 4 St-Washington Sq: F
+            14 St-Union Sq: "6"
+            Spring St (6): "6"
         lines:
+            - "4"
+            - "6"
+            - "6d"
             - B
             - D
             - F
             - M
         borough: Manhattan
-    Bleecker St:
+    Brooklyn Bridge-City Hall/Chambers St:
         loc:
-            lat: 0.0
-            long: 0.0
-        edges:
-            14 St-Union Sq: "6"
-            Spring St (6): "6"
-        lines:
-            - "6"
-        borough: Manhattan
-    Brooklyn Bridge-City Hall:
-        loc:
-            lat: 40.71326
-            long: -74.00671
+            lat: 40.712778
+            long: -74.004722
         edges:
             Spring St (6): "6"
-            #14 St-Union Sq: "4"
+            14 St-Union Sq: "4"
             Fulton St: ["4", "5"]
-        lines:
-            - "4"
-            - "5"
-            - "6"
-        borough: Manhattan
-    Chambers St (J/Z):
-        loc:
-            lat: 0.0
-            long: 0.0
-        edges:
             Broad St: ["J","Z"]
             Fulton St: ["J","Z"]
             Bowery: ["J","Z"]
         lines:
+            - "4"
+            - "5"
+            - "6"
             - J
             - Z
         borough: Manhattan
     Canal St (1):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.722
+            long: -74.006
         edges:
             Franklin St: "1"
             Houston St: "1"
@@ -2588,8 +2598,8 @@ Station:
         borough: Manhattan
     Chambers St (1/2/3):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.715517
+            long: -74.009233
         edges:
             Rector St (1): "1"
             Franklin St: "1"
@@ -2611,8 +2621,8 @@ Station:
         borough: Manhattan
     Christopher St-Sheridan Sq:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.733
+            long: -74.003
         edges:
             Houston St: "1"
             14 St (1/2/3): ["1","2","3"]
@@ -2644,13 +2654,15 @@ Station:
         lines:
             - R
         borough: Manhattan
-    Delancey St F/Essex St:
+    Delancey St/Essex St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.71851
+            long: -73.988199
         edges:
             Bowery: ["J","Z"]
             Marcy Av: ["J","M","Z"]
+            York St: F
+            2 Av: G
         lines:
             - J
             - M
@@ -2679,8 +2691,8 @@ Station:
         borough: Manhattan
     Franklin St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.71900
+            long: -74.00700
         edges:
             Chambers St (1/2/3): "1"
             Canal St (1): "1"
@@ -2694,8 +2706,7 @@ Station:
         edges:
             Wall St (2/3): ["2", "3"]
             Wall St (4/5): ["4", "5"]
-            Brooklyn Bridge-City Hall: ["4", "5"]
-            Chambers St (J/Z): ["J","Z"]
+            Brooklyn Bridge-City Hall/Chambers St: ["4", "5", "J", "Z"]
             High St: ["A", "C"]
         lines:
             - A
@@ -2740,8 +2751,8 @@ Station:
         borough: Manhattan
     Houston St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.728592
+            long: -74.005322
         edges:
             Canal St (1): "1"
             Christopher St-Sheridan Sq: "1"
@@ -2813,8 +2824,8 @@ Station:
         borough: Manhattan
     Rector St (1):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.70800
+            long: -74.01300
         edges:
             South Ferry/Whitehall St: "1"
             Chambers St (1/2/3): "1"
@@ -2851,19 +2862,22 @@ Station:
         borough: Manhattan
     Spring St (6):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.722222
+            long: -73.997222
         edges:
-            Bleecker St: "6"
-            Brooklyn Bridge-City Hall: "6"
+            Bleecker Street / Broadway - Lafayette Street: "6"
+            Brooklyn Bridge-City Hall/Chambers St: "6"
         lines:
+            - "4"
             - "6"
+            - "6d"
         borough: Manhattan
-    Spring St (C/E):
+    Spring St (A/C/E):
         loc:
             lat: 0.0
             long: 0.0
         lines:
+            - A
             - C
             - E
         borough: Manhattan
@@ -2893,8 +2907,8 @@ Station:
         loc:
             lat: 40.706311
             long: -74.009528
-            edges:
-                Fulton St: ["2","3"]
+        edges:
+            Fulton St: ["2","3"]
         lines:
             - "2"
             - "3"
@@ -2914,6 +2928,9 @@ Station:
         loc:
             lat: 40.731682
             long: -74.000945
+        edges:
+            Bleecker Street / Broadway - Lafayette Street: F
+            14 St/6 Av: F
         lines:
             - A
             - B
