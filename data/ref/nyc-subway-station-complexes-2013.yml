@@ -852,6 +852,9 @@ Station:
         loc:
             lat: 0.0
             long: 0.0
+        edges:
+            Myrtle-Willoughby Avs: G
+            Classon Av: G
         lines:
             - G
         borough: Brooklyn
@@ -894,10 +897,13 @@ Station:
             - B
             - Q
         borough: Brooklyn
-    Broadway:
+    Broadway (G):
         loc:
             lat: 0.0
             long: 0.0
+        edges:
+            Lorimer St/Metropolitan Av: G
+            Flushing Av (G): G
         lines:
             - G
         borough: Brooklyn
@@ -988,6 +994,9 @@ Station:
         loc:
             lat: 0.0
             long: 0.0
+        edges:
+            Bedford-Nostrand Avs: G
+            Clinton-Washington Avs (G): G
         lines:
             - G
         borough: Brooklyn
@@ -1009,6 +1018,9 @@ Station:
         loc:
             lat: 0.0
             long: 0.0
+        edges:
+            Classon Av: G
+            Fulton St (G): G
         lines:
             - G
         borough: Brooklyn
@@ -1127,6 +1139,9 @@ Station:
         loc:
             lat: 0.0
             long: 0.0
+        edges:
+            Broadway (G): G
+            Myrtle-Willoughby Avs: G
         lines:
             - G
         borough: Brooklyn
@@ -1182,10 +1197,13 @@ Station:
             - C
             - S
         borough: Brooklyn
-    Fulton St:
+    Fulton St (G):
         loc:
             lat: 0.0
             long: 0.0
+        edges:
+            Clinton-Washington Avs (G): G
+            Hoyt-Schermerhorn Sts: G
         lines:
             - G
         borough: Brooklyn
@@ -1236,6 +1254,9 @@ Station:
         loc:
             lat: 0.0
             long: 0.0
+        edges:
+            21 St: G
+            Nassau Av: G
         lines:
             - G
         borough: Brooklyn
@@ -1268,6 +1289,9 @@ Station:
         loc:
             lat: 0.0
             long: 0.0
+        edges:
+            Jay St-MetroTech: ["A","C"]
+            Fulton St: ["A","C"]
         lines:
             - A
             - C
@@ -1284,6 +1308,9 @@ Station:
         loc:
             lat: 40.689022
             long: -73.986142
+        edges:
+            Fulton St (G): G
+            Jay St-MetroTech: ["A","C"]
         lines:
             - A
             - C
@@ -1293,6 +1320,9 @@ Station:
         loc:
             lat: 40.693681
             long: -73.987233
+        edges:
+            High St: ["A","C"]
+            Hoyt-Schermerhorn Sts: ["A","C"]
         lines:
             - A
             - C
@@ -1410,6 +1440,7 @@ Station:
         edges:
             Bedford Av: L
             Graham Av: L
+            Broadway (G): G
         lines:
             - L
             - G
@@ -1452,7 +1483,7 @@ Station:
             lat: 40.696941
             long: -73.935285
         edges:
-            Flushing Av: ["J","M"]
+            Flushing Av (J/M): ["J","M"]
             Marcy Av: Z
             Kosciuszko St: J
             Central Av: M
@@ -1465,6 +1496,9 @@ Station:
         loc:
             lat: 0.0
             long: 0.0
+        edges:
+            Flushing Av (G): G
+            Bedford-Nostrand Avs: G
         lines:
             - G
         borough: Brooklyn
@@ -1483,6 +1517,9 @@ Station:
         loc:
             lat: 0.0
             long: 0.0
+        edges:
+            Greenpoint Av: G
+            Lorimer St/Metropolitan Av: G
         lines:
             - G
         borough: Brooklyn
@@ -1927,8 +1964,8 @@ Station:
         edges:
             6 Av: L
             3 Av: L
-            Astor Pl: 6
-            23 St (6): 6
+            Astor Pl: "6"
+            23 St (6): "6"
             Brooklyn Bridge-City Hall: ["4", "5"]
             Grand Central-42 St: ["4", "5"]
         lines:
@@ -2104,28 +2141,34 @@ Station:
         loc:
             lat: 0.0
             long: 0.0
+        edges:
+            28 St (N/R): [N,R]
+            14 St-Union Sq: [N,R]
         lines:
             - N
             - R
         borough: Manhattan
-    28 St:
+    28 St (1):
         loc:
             lat: 0.0
             long: 0.0
         lines:
             - "1"
         borough: Manhattan
-    28 St:
+    28 St (6):
         loc:
             lat: 40.746389
             long: -73.981944
         lines:
             - "6"
         borough: Manhattan
-    28 St:
+    28 St (N/R):
         loc:
             lat: 0.0
             long: 0.0
+        edges:
+            34 St-Herald Square: [N,R]
+            23 St (N/R): [N,R]
         lines:
             - N
             - R
@@ -2151,6 +2194,8 @@ Station:
         loc:
             lat: 40.749338
             long: -73.987985
+        edges:
+            28 St (N/R): [N,R]
         lines:
             - B
             - D
@@ -2330,6 +2375,9 @@ Station:
         loc:
             lat: 0.0
             long: 0.0
+        edges:
+            14 St-Union Sq: [N,R]
+            Prince St: [N,R]
         lines:
             - N
             - R
@@ -2451,8 +2499,8 @@ Station:
             lat: 0.0
             long: 0.0
         edges:
-            14 St-Union Sq: 6
-            Spring St (6): 6
+            14 St-Union Sq: "6"
+            Spring St (6): "6"
         lines:
             - "6"
         borough: Manhattan
@@ -2461,8 +2509,8 @@ Station:
             lat: 40.71326
             long: -74.00671
         edges:
-            Spring St (6): 6
-            14 St-Union Sq: "4"
+            Spring St (6): "6"
+            #14 St-Union Sq: "4"
             Fulton St: ["4", "5"]
         lines:
             - "4"
@@ -2504,6 +2552,9 @@ Station:
         loc:
             lat: 0.0
             long: 0.0
+        edges:
+            Prince St: [N,R]
+            City Hall: R
         lines:
             - J
             - N
@@ -2572,20 +2623,24 @@ Station:
         loc:
             lat: 0.0
             long: 0.0
+        edges:
+            Cortlandt St (R): R
         lines:
             - R
         borough: Manhattan
-    Cortlandt St:
+    Cortlandt St (1):
         loc:
             lat: 0.0
             long: 0.0
         lines:
             - "1"
         borough: Manhattan
-    Cortlandt St:
+    Cortlandt St (R):
         loc:
             lat: 0.0
             long: 0.0
+        edges:
+            Canal St (J/N/Q/R/Z/6): R
         lines:
             - R
         borough: Manhattan
@@ -2637,9 +2692,11 @@ Station:
             lat: 40.709719
             long: -74.006842
         edges:
+            Wall St (2/3): ["2", "3"]
             Wall St (4/5): ["4", "5"]
             Brooklyn Bridge-City Hall: ["4", "5"]
-            Chambers St: ["J","Z"]
+            Chambers St (J/Z): ["J","Z"]
+            High St: ["A", "C"]
         lines:
             - A
             - C
@@ -2657,6 +2714,8 @@ Station:
         edges:
             Lexington Av/59 St: ["4","5","6"]
             14 St-Union Sq: ["4","5"]
+            Times Sq-42 St: [S,"7"]
+            Vernon Blvd-Jackson Av: "7"
         lines:
             - S
             - "4"
@@ -2745,6 +2804,9 @@ Station:
         loc:
             lat: 0.0
             long: 0.0
+        edges:
+            8 St-New York University: [N,R]
+            Canal St (J/N/Q/R/Z/6): [N,R]
         lines:
             - N
             - R
@@ -2763,6 +2825,9 @@ Station:
         loc:
             lat: 0.0
             long: 0.0
+        edges:
+            Cortlandt St (R): R 
+            South Ferry/Whitehall St: R
         lines:
             - R
         borough: Manhattan
@@ -2789,8 +2854,8 @@ Station:
             lat: 0.0
             long: 0.0
         edges:
-            Bleecker St: 6
-            Brooklyn Bridge-City Hall: 6
+            Bleecker St: "6"
+            Brooklyn Bridge-City Hall: "6"
         lines:
             - "6"
         borough: Manhattan
@@ -2807,8 +2872,10 @@ Station:
             lat: 40.756
             long: -73.987
         edges:
+            34 St-Herald Square: [N,Q,R]
             34 St-Penn Station (A/C/E): ["1","2","3"]
             59 St-Columbus Circle: "1"
+            Grand Central-42 St: [S,"7"]
         lines:
             - "1"
             - "2"
@@ -2826,6 +2893,8 @@ Station:
         loc:
             lat: 40.706311
             long: -74.009528
+            edges:
+                Fulton St: ["2","3"]
         lines:
             - "2"
             - "3"
@@ -2916,6 +2985,9 @@ Station:
         loc:
             lat: 0.0
             long: 0.0
+        edges:
+            Court Sq: G
+            Greenpoint Av: G
         lines:
             - G
         borough: Queens
@@ -3204,6 +3276,9 @@ Station:
         loc:
             lat: 40.747615
             long: -73.945069
+        edges:
+            Vernon Blvd-Jackson Av: "7"
+            21 St: G
         lines:
             - E
             - G
@@ -3419,6 +3494,9 @@ Station:
         loc:
             lat: 0.0
             long: 0.0
+        edges:
+            Grand Central-42 St: "7"
+            Court Sq: "7"
         lines:
             - "7"
         borough: Queens
