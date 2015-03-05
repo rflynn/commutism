@@ -706,7 +706,7 @@ Station:
         lines:
             - J
         borough: Brooklyn
-    Atlantic Av- Barclays Ctr:
+    Atlantic Av-Barclays Ctr:
         loc:
             lat: 40.684462
             long: -73.978758
@@ -1887,15 +1887,50 @@ Station:
         borough: Manhattan
     125 St (2/3):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.807
+            long: -73.945
+        edges:
+            125 St (4/5/6): M60 SBS
         lines:
             - "2"
             - "3"
     125 St (4/5/6):
+        # ref: https://en.wikipedia.org/wiki/125th_Street_(IRT_Lexington_Avenue_Line)
         loc:
             lat: 40.804259
             long: -73.937473
+        edges:
+            125 St (2/3): M60 SBS
+            Harlem Line:
+                type: train
+                line: Metro-North Railroad
+            Hudson Line:
+                type: train
+                line: Metro-North Railroad
+            New Haven Line:
+                type: train
+                line: Metro-North Railroad
+            New Canaan Branch:
+                type: train
+                line: Metro-North Railroad
+            Danbury Branch:
+                type: train
+                line: Metro-North Railroad
+            M35:
+                type: bus
+                line: NYCT
+            M60 SBS to LGA:
+                type: bus
+                line: NYCT
+            M100:
+                type: bus
+                line: NYCT
+            M101:
+                type: bus
+                line: NYCT
+            Bx15:
+                type: bus
+                line: NYCT
         lines:
             - "4"
             - "5"
@@ -1905,6 +1940,10 @@ Station:
         loc:
             lat: 40.810756
             long: -73.952665
+        edges:
+            145 St (A/B/C/D): ["A","B","C","D"]
+            125 St (2/3): M60 SBS
+            59 St-Columbus Circle: ["A","D"]
         lines:
             - A
             - B
@@ -1974,6 +2013,18 @@ Station:
             23 St (6): "6"
             Brooklyn Bridge-City Hall/Chambers St: ["4", "5"]
             Grand Central-42 St: ["4", "5"]
+        switch:
+            L:
+                4/5:
+                    walking:
+                        - up:
+                            - stairs: 4 meters
+                        - flat: 30 meters
+                        - down:
+                            - stairs: 4 meters
+                            - stairs: 4 meters
+                    elevator:
+                        - not sure
         lines:
             - L
             - N
@@ -2001,6 +2052,8 @@ Station:
         loc:
             lat: 0.0
             long: 0.0
+        edges:
+            125 St (A/B/C/D): ["A","B","C","D"]
         lines:
             - A
             - B
@@ -2041,7 +2094,7 @@ Station:
             lat: 40.841022
             long: -73.939791
         edges:
-            96 St (1/2/3): ["1","2","3"]
+            96 St (1/2/3): ["2","3"]
         lines:
             - A
             - C
@@ -2221,6 +2274,7 @@ Station:
         edges:
             Times Sq-42 St: ["1","2","3"]
             34 St-Penn Station (A/C/E): LIRR
+            14 St (1/2/3): ["1","2","3"]
         lines:
             - "1"
             - "2"
@@ -2317,6 +2371,10 @@ Station:
         loc:
             lat: 40.767997
             long: -73.981934
+        edges:
+            125 St (A/B/C/D): ["A","D"]
+            Times Sq-42 St: "1"
+            72 St (1/2/3): "1"
         lines:
             - A
             - B
@@ -2358,11 +2416,23 @@ Station:
             - E
         borough: Manhattan
     72 St (1/2/3):
+        # ref: https://en.wikipedia.org/wiki/72nd_Street_(IRT_Broadway_%E2%80%93_Seventh_Avenue_Line)
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.779
+            long: -73.982
         edges:
-            Times Sq-42 St: "1"
+            Times Sq-42 St: ["2","3"]
+            96 St (1/2/3): ["2","3"]
+            66 St-Lincoln Center: "1"
+            79 St: "1"
+        bus:
+            M5: NYCT
+            M7: NYCT
+            M11: NYCT
+            M57: NYCT
+            M72: NYCT
+            M104: NYCT
+            BxM2: MTA
         lines:
             - "1"
             - "2"
@@ -2438,6 +2508,7 @@ Station:
             - C
         borough: Manhattan
     96 St (1/2/3):
+        # ref: https://en.wikipedia.org/wiki/96th_Street_(IRT_Broadway_%E2%80%93_Seventh_Avenue_Line)
         loc:
             lat: 40.7941
             long: -73.972
@@ -2448,6 +2519,10 @@ Station:
             - "1"
             - "2"
             - "3"
+        bus:
+            M96: NYCT
+            M104: NYCT
+            M106: NYCT
         borough: Manhattan
     96 St (6):
         loc:
@@ -2528,9 +2603,8 @@ Station:
         edges:
             Spring St (6): "6"
             14 St-Union Sq: "4"
-            Fulton St: ["4", "5"]
             Broad St: ["J","Z"]
-            Fulton St: ["J","Z"]
+            Fulton St: ["4","5","J","Z"]
             Bowery: ["J","Z"]
         lines:
             - "4"
@@ -2573,14 +2647,14 @@ Station:
             - Z
             - "6"
         borough: Manhattan
-    Cathedral Pkwy-110 St:
+    Cathedral Pkwy-110 St (1):
         loc:
             lat: 0.0
             long: 0.0
         lines:
             - "1"
         borough: Manhattan
-    Cathedral Pkwy-110 St:
+    Cathedral Pkwy-110 St (B/C):
         loc:
             lat: 0.0
             long: 0.0
@@ -2601,8 +2675,10 @@ Station:
             lat: 40.715517
             long: -74.009233
         edges:
+            Fulton St: ["2","3"]
             Rector St (1): "1"
             Franklin St: "1"
+            14 St (1/2/3): ["2","3"]
         lines:
             - "1"
             - "2"
@@ -2704,6 +2780,7 @@ Station:
             lat: 40.709719
             long: -74.006842
         edges:
+            Chambers St (1/2/3): "1"
             Wall St (2/3): ["2", "3"]
             Wall St (4/5): ["4", "5"]
             Brooklyn Bridge-City Hall/Chambers St: ["4", "5", "J", "Z"]
@@ -2837,7 +2914,7 @@ Station:
             lat: 0.0
             long: 0.0
         edges:
-            Cortlandt St (R): R 
+            Cortlandt St (R): R
             South Ferry/Whitehall St: R
         lines:
             - R

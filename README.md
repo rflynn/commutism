@@ -43,6 +43,7 @@ Further Reading:
 Reference:
 * https://en.wikipedia.org/wiki/List_of_New_York_City_Subway_lines#Nomenclature
 * https://en.wikipedia.org/wiki/IRT_Broadway_%E2%80%93_Seventh_Avenue_Line
+* https://en.wikipedia.org/wiki/Bus_bunching
 
 Travel Options:
 * MTA bus
@@ -51,3 +52,15 @@ Travel Options:
 * Uber
 * https://www.erideshare.com/carpool.php?dstate=NY
 
+
+http://web.mta.info/developers/developer-data-terms.html#data
+
+Service Status - refreshed every minute
+http://web.mta.info/status/serviceStatus.txt
+
+New York City Transit Subway - Updated December 04, 2014
+http://web.mta.info/developers/data/nyct/subway/google_transit.zip
+
+http://datamine.mta.info/
+http://datamine.mta.info/sites/all/files/pdfs/nyct-subway.proto.txt
+http://datamine.mta.info/mta_esi.php?key=bbd484ca89540588c3dfdf88d6af15a0

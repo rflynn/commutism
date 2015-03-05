@@ -22,19 +22,29 @@ for name, station in SubwayStations['Station'].iteritems():
         print name
         if station['edges']:
             for to, lines in station['edges'].iteritems():
-                if type(lines) != type([]):
-                    lines = [lines]
-                for line in lines:
-                    SubwayGraphX.add_edge(name, to, key=line)
+                if isinstance(lines, dict):
+                    # i've started marking up bus and train lines, but haven't got a consistent format down yet...
+                    continue
+                else:
+                    if not isinstance(lines, list):
+                        lines = [lines]
+                    for line in lines:
+                        SubwayGraphX.add_edge(name, to, key=line)
     else:
         print 'need edges: %s' % name
 
 def latlongdist(x, y):
+    # TODO: https://en.wikipedia.org/wiki/Haversine_formula
     return sqrt((abs(x['lat'] - y['lat'])**2) +
                 (abs(x['long'] - y['long'])**2))
 
+def latlongdist_walking(x, y):
+    # walking along streets is much more like right angles than as-the-crow-flies direct routes...
+    return (abs(x['lat'] - y['lat']) +
+            abs(x['long'] - y['long']))
+
 def stations_nearest(latlong):
-    return [x for x,y in
+    return [x for x, y in
                 sorted([x for x in SubwayStations['Station'].items()
                     if x[1]['loc']['lat'] != 0.0 and x[1]['loc']['long'] != 0.0],
                   key=lambda x: latlongdist(latlong, x[1]['loc']),
@@ -44,9 +54,152 @@ def latlong2station((lat, long_)):
     return stations_nearest({'lat': lat,
                              'long': long_})
 
+def shortest_path(g, source=None, target=None):
+    try:
+        return nx.shortest_path(g, source=source, target=target)
+    except nx.exception.NetworkXNoPath:
+        return []
+
+def avg_walk_speed_mps():
+    # ref: https://en.wikipedia.org/wiki/Preferred_walking_speed
+    return 1.4
+
+def time_to_walk_in_seconds(meters):
+    return avg_walk_speed_mps() * meters
+
+def latlongdist_to_meters(latlongdiff):
+    return latlongdiff * 111111.0
+
+def time_subway_speed_over_dist_mps(meters):
+    # TODO: take a real guess
+    # a better guess would take distance into account and the speed and brake curves...
+    return meters / 15 # FIXME: real guess
+
+def time_avg_plus_line_changes(route):
+    # given a route, calculate the time the route would take
+    # walking is approximated on average walk speed
+    # time between stations is approximated via avg train speed
+    # switching lines inside a station complex is approximated
+    raise NotImplementedError()
+
+def sec_to_min(sec):
+    minutes = int(sec / 60)
+    seconds = int(sec - (minutes * 60))
+    return '%d:%02d' % (minutes, seconds)
+
+def zip3(x, y, z):
+    xi, yi, zi = iter(x), iter(y), iter(z)
+    while True:
+        yield (next(xi), next(yi), next(zi))
+
+class SubwayEdge(object):
+    def __init__(self, st1, st2):
+        self.st1 = st1
+        self.st2 = st2
+        self.distance = self.station_distance()
+        self.lines = set(SubwayGraphX[self.st1][self.st2].keys())
+    def __repr__(self):
+        return '%-9s %s --> %s dist=%.3f' % (
+            '/'.join(sorted(self.lines)), self.st1, self.st2, self.distance)
+    def station_distance(self):
+        dist = latlongdist(SubwayStations['Station'][self.st1]['loc'],
+                           SubwayStations['Station'][self.st2]['loc'])
+        if dist > 1.0:
+            print 'TOO FAR: distance between', st1, 'and', st2, 'is', dist
+        return dist
+
+class SubwayTrip(object):
+    def __init__(self, st1, st2, start, goal):
+        self.st1 = st1
+        self.st2 = st2
+        self.start = start
+        self.goal = goal
+        self.path = shortest_path(SubwayGraphX, source=st1, target=st2)
+        self.route = list(starmap(SubwayEdge, zip(self.path, self.path[1:])))
+        self.distance = sum(x.distance for x in self.route)
+        self.min_line_changes = (sum(not (x.lines & y.lines)
+                                        for x, y in zip(self.route,
+                                                        self.route[1:])) +
+                                 sum(bool(((x.lines & y.lines) and
+                                           (y.lines & z.lines) and
+                                            not (x.lines & z.lines)))
+                                         for x, y, z in zip3(self.route,
+                                                             self.route[1:],
+                                                             self.route[2:])))
+    def __eq__(self, other):
+        return self.path == other.path
+    def __repr__(self):
+        return 'SubwayTrip(%s)' % self.route
+    def time_avg(self):
+        # given a route, calculate the average time between all points
+        # walking is approximated on average walk speed
+        # time between stations is approximated via avg train speed
+        # switching lines inside a station complex is approximated
+        st1 = SubwayStations['Station'][self.st1]
+        st2 = SubwayStations['Station'][self.st2]
+        self.dist_walk_to_first = latlongdist_walking(self.start, st1['loc'])
+        time_walk_to_first = time_to_walk_in_seconds(latlongdist_to_meters(self.dist_walk_to_first))
+        self.dist_walk_from_last = latlongdist_walking(st2['loc'], self.goal)
+        time_walk_from_last = time_to_walk_in_seconds(latlongdist_to_meters(self.dist_walk_from_last))
+        dist_between_stations = sum(x.station_distance() for x in self.route)
+        time_between_stations =  time_subway_speed_over_dist_mps(latlongdist_to_meters(dist_between_stations))
+        time_changing_lines = self.min_line_changes * 300
+        return time_walk_to_first + time_between_stations + time_changing_lines + time_walk_from_last
+    def format(self):
+        print '    SubwayTrip (%s, %s, dist=%.3f, time_avg=%.1f, line_changes=%s)' % (
+            self.st1, self.st2, self.distance, self.time_avg(), self.min_line_changes)
+        print '        ', 'walk to %s dist=%.3f' % (self.st1, self.dist_walk_to_first)
+        for edge in self.route:
+            print '        ', edge
+        print '        ', 'walk from %s dist=%.3f' % (self.st2, self.dist_walk_from_last)
+
+def walking_distance_meters():
+    return 1000
+
+def walking_distance_latlong(latlongdist):
+    return latlongdist_to_meters(latlongdist) < walking_distance_meters()
+
+def stations_nearest_within_walking_distance(latlong, atleast=1, atmost=5):
+    st = sorted((latlongdist(latlong, SubwayStations['Station'][x]['loc']), x)
+                    for x in stations_nearest(latlong)[:atmost])
+    return ([s for d, s in st[:atleast]] + \
+            [s for d, s in takewhile(lambda (d, s): walking_distance_latlong(d), st[atleast:])])
+
+class SubwayPossibilities(object):
+    def __init__(self, start, goal):
+        self.start = start
+        self.goal = goal
+        stations_nearest_start = stations_nearest_within_walking_distance(start, atleast=1, atmost=5)
+        stations_nearest_goal = stations_nearest_within_walking_distance(goal, atleast=1, atmost=5)
+        #pprint(stations_nearest_start, width=150)
+        #pprint(stations_nearest_goal, width=150)
+        self.trips = set(starmap(SubwayTrip, [(x, y, start, goal)
+                                                for x, y in itertools.product(stations_nearest_start,
+                                                                              stations_nearest_goal)]))
+        self.trips = [y for x, y in sorted((x.time_avg(), x) for x in self.trips) if x if y.route]
+    def __repr__(self):
+        return 'SubwayPossibilities(n=%d, %s)' % (len(self.trips), self.trips)
+    def format(self):
+        print 'SubwayPossibilities(n=%d):' % len(self.trips)
+        for t in self.trips:
+            t.format()
+
+class Trip(object):
+    def __init__(self, start, goal):
+        self.start = start
+        self.goal = goal
+        self.possibilities = SubwayPossibilities(start, goal)
+    def __repr__(self):
+        return 'Trip(%s --> %s, %s)' % (self.start, self.goal, self.possibilities)
+    def format(self):
+        print 'Trip %s --> %s' % (self.start, self.goal)
+        self.possibilities.format()
+
 if __name__ == '__main__':
+
     import sys
     import itertools
+
     #print latlong2station((0., 0.))
     #print latlong2station((-73.976522, 40.7528))
     #print latlong2station((-73.97652, 40.752))
@@ -58,54 +211,18 @@ if __name__ == '__main__':
     print latlong2station((40.704283, -74.011963)) # 80 Broad St
     _171_Stanhope = {'lat': 40.699377, 'long': -73.922061}
     _80_Broad_St = {'lat': 40.704283, 'long': -74.011963}
-    Stations_Nearest_171_Stanhope = stations_nearest(_171_Stanhope)[:5]
-    Stations_Nearest_80_Broad_St = stations_nearest(_80_Broad_St)[:5]
+    _125_St = {'lat': 40.804259, 'long': -73.937473}
+    _Columbus_Circle = {'lat': 40.767997, 'long': -73.981934}
 
     print '--------------'
 
-    pprint(Stations_Nearest_171_Stanhope, width=150)
-    pprint(Stations_Nearest_80_Broad_St, width=150)
+    #t = Trip(_171_Stanhope, _80_Broad_St)
+    t = Trip(_80_Broad_St, _125_St)
+    #t = Trip(_80_Broad_St, _Columbus_Circle)
 
-    def shortest_path(g, source=None, target=None):
-        try:
-            return nx.shortest_path(g, source=source, target=target)
-        except nx.exception.NetworkXNoPath:
-            return None
+    t.format()
 
-    print '--------------'
-    #Trips = [((x,y), set(map(tuple,nx.all_simple_paths(SubwayGraphX, source=x, target=y))))
-    Trips = [shortest_path(SubwayGraphX, source=x, target=y)
-                for x, y in itertools.product(Stations_Nearest_171_Stanhope,
-                                              Stations_Nearest_80_Broad_St)]
-
-    def distance_walking(path):
-        st1 = SubwayStations['Station'][path[0]]
-        st2 = SubwayStations['Station'][path[-1]]
-        return ((latlongdist(_171_Stanhope, st1['loc']) +
-                 latlongdist(_80_Broad_St, st2['loc'])), len(path))
-
-    def station_distance(st1, st2):
-        dist = latlongdist(SubwayStations['Station'][st1]['loc'],
-                           SubwayStations['Station'][st2]['loc'])
-        print 'station_distance', st1, st2, dist
-        return dist
-
-    def distance_traveled(path):
-        # given a path, calculate the actual distance traveled
-        st1 = SubwayStations['Station'][path[0]]
-        st2 = SubwayStations['Station'][path[-1]]
-        walk_to_first = latlongdist(_171_Stanhope, st1['loc'])
-        walk_from_last = latlongdist(_80_Broad_St, st2['loc'])
-        print list(starmap(station_distance, zip(path, path[1:])))
-        between_stations = sum(starmap(station_distance, zip(path, path[1:])))
-        return walk_to_first + between_stations + walk_from_last
-
-    Trips2 = sorted(set(tuple(trip) for trip in Trips if trip),
-                     key=lambda path: distance_traveled(path),
-                     reverse=False)
-    Trips3 = [(round(distance_traveled(x), 5), list(x)) for x in Trips2]
-
-    pprint(Trips3, width=500)
+    '''
 
     # join common prefixes
 
@@ -144,7 +261,9 @@ if __name__ == '__main__':
     map(print_prefix, lps4)
 
     print '--------------'
+    '''
 
+    '''
     sys.exit(0)
 
     print 'SubwayGraphX:'
@@ -176,9 +295,6 @@ if __name__ == '__main__':
     pprint(all_paths, width=150)
 
     #pprint(nx.all_pairs_dijkstra_path(SubwayGraphX, 'Bowling Green', 'DeKalb Av (L)'), width=150)
-
-    '''
-    ['__path__', 'all_pairs_dijkstra_path', 'all_pairs_dijkstra_path_length', 'all_pairs_shortest_path', 'all_pairs_shortest_path_length', 'all_shortest_paths', 'all_simple_paths', 'astar_path', 'astar_path_length', 'average_shortest_path_length', 'bidirectional_shortest_path', 'dijkstra_path', 'dijkstra_path_length', 'has_path', 'path_graph', 'shortest_path', 'shortest_path_length', 'shortest_paths', 'simple_paths', 'single_source_dijkstra_path', 'single_source_dijkstra_path_length', 'single_source_shortest_path', 'single_source_shortest_path_length']
     '''
 
     '''
