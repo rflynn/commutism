@@ -33,6 +33,8 @@ for name, station in SubwayStations['Station'].iteritems():
     else:
         print 'need edges: %s' % name
 
+# TODO: add the ability to extract individual lines out as diffs, then add them back in
+
 def latlongdist(x, y):
     # TODO: https://en.wikipedia.org/wiki/Haversine_formula
     return sqrt((abs(x['lat'] - y['lat'])**2) +
@@ -105,16 +107,16 @@ class SubwayEdge(object):
         dist = latlongdist(SubwayStations['Station'][self.st1]['loc'],
                            SubwayStations['Station'][self.st2]['loc'])
         if dist > 1.0:
-            print 'TOO FAR: distance between', st1, 'and', st2, 'is', dist
+            print 'TOO FAR: distance between', self.st1, 'and', self.st2, 'is', dist
         return dist
 
 class SubwayTrip(object):
-    def __init__(self, st1, st2, start, goal):
-        self.st1 = st1
-        self.st2 = st2
+    def __init__(self, path, start, goal):
+        self.st1 = path[0]
+        self.st2 = path[-1]
         self.start = start
         self.goal = goal
-        self.path = shortest_path(SubwayGraphX, source=st1, target=st2)
+        self.path = path#shortest_path(SubwayGraphX, source=st1, target=st2)
         self.route = list(starmap(SubwayEdge, zip(self.path, self.path[1:])))
         self.distance = sum(x.distance for x in self.route)
         self.min_line_changes = (sum(not (x.lines & y.lines)
@@ -142,8 +144,11 @@ class SubwayTrip(object):
         self.dist_walk_from_last = latlongdist_walking(st2['loc'], self.goal)
         time_walk_from_last = time_to_walk_in_seconds(latlongdist_to_meters(self.dist_walk_from_last))
         dist_between_stations = sum(x.station_distance() for x in self.route)
-        time_between_stations =  time_subway_speed_over_dist_mps(latlongdist_to_meters(dist_between_stations))
-        time_changing_lines = self.min_line_changes * 300
+        time_between_stations = (
+            time_subway_speed_over_dist_mps(latlongdist_to_meters(dist_between_stations))
+            + (len(self.route) * 30) # stops in station
+        )
+        time_changing_lines = self.min_line_changes * 240
         return time_walk_to_first + time_between_stations + time_changing_lines + time_walk_from_last
     def format(self):
         print '    SubwayTrip (%s, %s, dist=%.3f, time_avg=%.1f, line_changes=%s)' % (
@@ -173,10 +178,22 @@ class SubwayPossibilities(object):
         stations_nearest_goal = stations_nearest_within_walking_distance(goal, atleast=1, atmost=5)
         #pprint(stations_nearest_start, width=150)
         #pprint(stations_nearest_goal, width=150)
-        self.trips = set(starmap(SubwayTrip, [(x, y, start, goal)
-                                                for x, y in itertools.product(stations_nearest_start,
-                                                                              stations_nearest_goal)]))
-        self.trips = [y for x, y in sorted((x.time_avg(), x) for x in self.trips) if x if y.route]
+        self.trips = set(starmap(SubwayTrip,
+            [(list(path), start, goal)
+                for x, y in itertools.product(stations_nearest_start,
+                                              stations_nearest_goal)
+                    for path in set(map(tuple,
+                        list(nx.all_simple_paths(SubwayGraphX, source=x,
+                                                          target=y,
+                                                          cutoff=10)) + \
+                        [shortest_path(SubwayGraphX, source=x,
+                                                    target=y)]))]))
+        #self.trips = set(starmap(SubwayTrip, [(x, y, start, goal)
+        #                                        for x, y in itertools.product(stations_nearest_start,
+        #                                                                      stations_nearest_goal)]))
+        self.trips = [y for x, y in
+                        sorted((x.time_avg(), x)
+                            for x in self.trips) if x if y.route]
     def __repr__(self):
         return 'SubwayPossibilities(n=%d, %s)' % (len(self.trips), self.trips)
     def format(self):
@@ -184,6 +201,7 @@ class SubwayPossibilities(object):
         for t in self.trips:
             t.format()
 
+# TODO: taxi! uber!
 class Trip(object):
     def __init__(self, start, goal):
         self.start = start
@@ -213,14 +231,49 @@ if __name__ == '__main__':
     _80_Broad_St = {'lat': 40.704283, 'long': -74.011963}
     _125_St = {'lat': 40.804259, 'long': -73.937473}
     _Columbus_Circle = {'lat': 40.767997, 'long': -73.981934}
+    _Court_Sq = {'lat': 40.747615, 'long': -73.945069}
+    _Astoria_Blvd = {'lat': 40.769979, 'long': -73.918161}
+    _Queensboro_Plaza = {'lat': 40.750653, 'long': -73.940344}
+    _36_Av = {'lat': 40.756555, 'long': -73.929791}
+    _LaGuardia = {'lat': 40.77725, 'long': -73.872611}
+    _Lorimer_Met_Av = {'lat': 40.712752, 'long': -73.951464}
+    _Times_Sq = {'lat': 40.756, 'long': -73.987}
+    _Lexington_Av = {'lat': 40.762471, 'long': -73.9679}
+    _49_St = {'lat': 40.760423, 'long': -73.983779}
 
     print '--------------'
 
-    #t = Trip(_171_Stanhope, _80_Broad_St)
-    t = Trip(_80_Broad_St, _125_St)
+    t = Trip(_171_Stanhope, _80_Broad_St)
+    #t = Trip(_80_Broad_St, _171_Stanhope)
+    #t = Trip(_80_Broad_St, _125_St)
+    #t = Trip(_171_Stanhope, _125_St)
     #t = Trip(_80_Broad_St, _Columbus_Circle)
+    #t = Trip(_Court_Sq, _125_St)
+    #t = Trip(_Astoria_Blvd, _125_St)
+    #t = Trip(_Queensboro_Plaza, _125_St)
+    #t = Trip(_36_Av, _125_St)
+    #t = Trip(_171_Stanhope, _LaGuardia)
+    #t = Trip(_171_Stanhope, _125_St)
+    #t = Trip(_125_St, _LaGuardia)
+    #t = Trip(_171_Stanhope, _Court_Sq)
+    #t = Trip(_171_Stanhope, _Lorimer_Met_Av)
+    #t = Trip(_Lorimer_Met_Av, _Court_Sq)
+    #t = Trip(_Times_Sq, _LaGuardia)
+    #t = Trip(_Lexington_Av, _LaGuardia)
+    #t = Trip(_49_St, _Lexington_Av)
+    #t = Trip(_49_St, _LaGuardia)
 
     t.format()
+
+    '''
+    all_paths = nx.all_simple_paths(SubwayGraphX,
+                                    source='Times Sq-42 St',
+                                    target='LaGuardia Airport',
+                                    cutoff=8)
+    all_paths = map(list,set(map(tuple,all_paths)))
+    pprint(all_paths, width=150)
+    '''
+
 
     '''
 

@@ -50,8 +50,11 @@ Travel Options:
 * MTA train
 * NYC Taxi
 * Uber
+* Citibike
+* Car rental (Hertz, Enterprise, etc)
+* Short-term car rental (ZipCar, Hertz 24/7, etc)
 * https://www.erideshare.com/carpool.php?dstate=NY
-
+* http://www.nycgo.com/articles/nyc-transportation-getting-around
 
 http://web.mta.info/developers/developer-data-terms.html#data
 

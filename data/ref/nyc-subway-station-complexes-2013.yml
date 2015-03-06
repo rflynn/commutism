@@ -15,6 +15,27 @@
 
 # TODO: add "6d" and "7d" express lines
 
+Colors:
+    terra cotta brown: E2725B
+
+Line:
+    J:
+        subway:
+            line: BMT Nassau Street Line
+            color: terra cotta brown
+        time:
+            rush hours: all stops
+            middays, evenings, weekends: all stops
+            late nights: all stops
+    Z:
+        subway:
+            line: BMT Nassau Street Line
+            color: terra cotta brown
+        time:
+            rush hours: all stops in peak direction
+            middays, evenings, weekends: no service
+            late nights: no service
+
 Station:
     138 St-Grand Concourse:
         loc:
@@ -1257,8 +1278,8 @@ Station:
         borough: Brooklyn
     Greenpoint Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.730153
+            long: -73.954296
         edges:
             21 St: G
             Nassau Av: G
@@ -1429,8 +1450,8 @@ Station:
         borough: Brooklyn
     Lorimer St (J/M):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.704099
+            long: -73.947902
         edges:
             Flushing Av: ["J","M"]
             Hewes St: ["J","M"]
@@ -1446,6 +1467,7 @@ Station:
             Bedford Av: L
             Graham Av: L
             Broadway (G): G
+            Nassau Av: G
         lines:
             - L
             - G
@@ -1520,8 +1542,8 @@ Station:
         borough: Brooklyn
     Nassau Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.723811
+            long: -73.95082
         edges:
             Greenpoint Av: G
             Lorimer St/Metropolitan Av: G
@@ -1801,8 +1823,8 @@ Station:
         borough: Brooklyn
     York St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.701529
+            long: -73.986783
         edges:
             Delancey St/Essex St: F
             Jay St-MetroTech: F
@@ -1901,6 +1923,7 @@ Station:
             long: -73.937473
         edges:
             125 St (2/3): M60 SBS
+            Astoria Blvd: M60 SBS
             Harlem Line:
                 type: train
                 line: Metro-North Railroad
@@ -2201,8 +2224,8 @@ Station:
         borough: Manhattan
     23 St (N/R):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.741339
+            long: -73.989272
         edges:
             28 St (N/R): [N,R]
             14 St-Union Sq: [N,R]
@@ -2226,8 +2249,8 @@ Station:
         borough: Manhattan
     28 St (N/R):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.745241
+            long: -73.988757
         edges:
             34 St-Herald Square: [N,R]
             23 St (N/R): [N,R]
@@ -2289,17 +2312,18 @@ Station:
             - C
             - E
         borough: Manhattan
-    42 St-Bryant Pk:
-        loc:
-            lat: 40.754799
-            long: -73.984208
-        lines:
-            - B
-            - D
-            - F
-            - M/5 Av
-            - "7"
-        borough: Manhattan
+    # networkx bug?!
+    #42 St-Bryant Pk:
+    #    loc:
+    #        lat: 40.754799
+    #        long: -73.984208
+    #    lines:
+    #        - B
+    #        - D
+    #        - F
+    #        - M/5 Av
+    #        - "7"
+    #    borough: Manhattan
     47-50 Sts-Rockefeller Center:
         loc:
             lat: 0.0
@@ -2312,8 +2336,11 @@ Station:
         borough: Manhattan
     49 St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.760423
+            long: -73.983779
+        edges:
+            57 St-7 Av: [N,Q,R]
+            Times Sq-42 St: [N,Q,R]
         lines:
             - N
             - Q
@@ -2329,8 +2356,11 @@ Station:
         borough: Manhattan
     5 Av-59 St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.764779
+            long: -73.972621
+        edges:
+            Lexington Av/59 St: [N,Q,R]
+            57 St-7 Av: [N,Q,R]
         lines:
             - N
             - Q
@@ -2360,8 +2390,11 @@ Station:
         borough: Manhattan
     57 St-7 Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.765461
+            long: -73.980088
+        edges:
+            5 Av-59 St: [N,Q,R]
+            49 St: [N,Q,R]
         lines:
             - N
             - Q
@@ -2804,6 +2837,7 @@ Station:
             14 St-Union Sq: ["4","5"]
             Times Sq-42 St: [S,"7"]
             Vernon Blvd-Jackson Av: "7"
+            125 St (4/5/6): Metro North
         lines:
             - S
             - "4"
@@ -2850,6 +2884,8 @@ Station:
         edges:
             Grand Central-42 St: ["4","5","6"]
             86 St (4/5/6): ["4","5"]
+            Queensboro Plaza: [N,Q]
+            5 Av-59 St: [N,Q,R]
         lines:
             - "4"
             - "5"
@@ -2866,14 +2902,15 @@ Station:
             - E
             - M
         borough: Manhattan
-    51 St:
-        loc:
-            lat: 40.757075
-            long: -73.971977
-        lines:
-            - "4"
-            - "6"
-        borough: Manhattan
+    # networkx bug?!
+    #51 St:
+    #    loc:
+    #        lat: 40.757075
+    #        long: -73.971977
+    #    lines:
+    #        - "4"
+    #        - "6"
+    #    borough: Manhattan
     Lexington Av-63 St:
         loc:
             lat: 0.0
@@ -3017,6 +3054,19 @@ Station:
             - F
             - M
         borough: Manhattan
+    LaGuardia Airport:
+        type: airport
+        airport:
+            code: LGA
+        loc:
+            lat: 40.77725
+            long: -73.872611
+        edges:
+            74-Bway Jackson Hts-Roosevelt Av: Q47
+            Astoria Blvd: M60 SBS
+            Junction Blvd: Q72
+            Flushing-Main St: Q48
+            Woodside-61 St: Q47
     103 St-Corona Plaza:
         loc:
             lat: 0.0
@@ -3077,8 +3127,8 @@ Station:
         borough: Queens
     21 St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.744591
+            long: -73.948674
         edges:
             Court Sq: G
             Greenpoint Av: G
@@ -3094,8 +3144,11 @@ Station:
         borough: Queens
     30 Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.766859
+            long: -73.921423
+        edges:
+            Broadway (N/Q): [N,Q]
+            Astoria Blvd: [N,Q]
         lines:
             - N
             - Q
@@ -3104,13 +3157,18 @@ Station:
         loc:
             lat: 0.0
             long: 0.0
+        edges:
+            Queensboro Plaza: "7"
         lines:
             - "7"
         borough: Queens
     36 Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.756555
+            long: -73.929791
+        edges:
+            39 Av: [N,Q]
+            Broadway (N/Q): [N,Q]
         lines:
             - N
             - Q
@@ -3125,8 +3183,11 @@ Station:
         borough: Queens
     39 Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.752686
+            long: -73.932924
+        edges:
+            Queensboro Plaza: [N,Q]
+            36 Av: [N,Q]
         lines:
             - N
             - Q
@@ -3195,6 +3256,8 @@ Station:
         loc:
             lat: 40.746764
             long: -73.891519
+        edges:
+            LaGuardia Airport: Q47
         lines:
             - "7"
             - E
@@ -3269,16 +3332,23 @@ Station:
         borough: Queens
     Astoria Blvd:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.769979
+            long: -73.918161
+        edges:
+            LaGuardia Airport: M60 SBS
+            30 Av: [N,Q]
+            Astoria-Ditmars Blvd: [N,Q]
+            125 St (4/5/6): M60 SBS
         lines:
             - N
             - Q
         borough: Queens
     Astoria-Ditmars Blvd:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.776089
+            long: -73.910737
+        edges:
+            Astoria Blvd: [N,Q]
         lines:
             - N
             - Q
@@ -3358,10 +3428,13 @@ Station:
             - A
             - S
         borough: Queens
-    Broadway:
+    Broadway (N/Q):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.761951
+            long: -73.925414
+        edges:
+            30 Av: [N,Q]
+            36 Av: [N,Q]
         lines:
             - N
             - Q
@@ -3373,6 +3446,7 @@ Station:
         edges:
             Vernon Blvd-Jackson Av: "7"
             21 St: G
+            Queensboro Plaza: "7"
         lines:
             - E
             - G
@@ -3396,15 +3470,22 @@ Station:
         borough: Queens
     Flushing-Main St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.759522
+            long: -73.830317
+        edges:
+            Mets-Willets Point: "7d"
+            LaGuardia Airport: Q48
         lines:
             - "7"
+            - "7d"
         borough: Queens
     Forest Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.704619
+            long: -73.901982
+        edges:
+            Seneca Av: M
+            Fresh Pond Rd: M
         lines:
             - M
         borough: Queens
@@ -3420,8 +3501,11 @@ Station:
         borough: Queens
     Fresh Pond Rd:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.705953
+            long: -73.896704
+        edges:
+            Forest Av: M
+            Middle Village-Metropolitan Av: M
         lines:
             - M
         borough: Queens
@@ -3442,8 +3526,11 @@ Station:
         borough: Queens
     Hunters Point Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.742381
+            long: -73.949258
+        edges:
+            Court Sq: "7"
+            Vernon Blvd-Jackson Av: "7"
         lines:
             - "7"
         borough: Queens
@@ -3472,8 +3559,13 @@ Station:
         borough: Queens
     Junction Blvd:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.749175
+            long: -73.869097
+        edges:
+            Woodside-61 St: "7d"
+            Mets-Willets Point: "7d"
+            LaGuardia Airport: Q72
+            Middle Village-Metropolitan Av: Q38
         lines:
             - "7"
         borough: Queens
@@ -3487,15 +3579,22 @@ Station:
         borough: Queens
     Mets-Willets Point:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.754558
+            long: -73.845581
+        edges:
+            Junction Blvd: "7d"
+            Flushing-Main St: "7d"
         lines:
             - "7"
+            - "7d"
         borough: Queens
     Middle Village-Metropolitan Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.712232
+            long: -73.889194
+        edges:
+            Fresh Pond Rd: M
+            Junction Blvd: Q38
         lines:
             - M
         borough: Queens
@@ -3521,22 +3620,31 @@ Station:
         lines:
             - F
         borough: Queens
-    Queens Plaza:
-        loc:
-            lat: 40.748915
-            long: -73.937387
-        lines:
-            - E
-            - M
-            - R
-        borough: Queens
+    # FIXME: networkx bug?!
+    #Queens Plaza:
+        #loc:
+            #lat: 40.748915
+            #long: -73.937387
+        #edges:
+        #lines:
+            #- E
+            #- M
+            #- R
+        #borough: Queens
     Queensboro Plaza:
         loc:
             lat: 40.750653
             long: -73.940344
+        edges:
+            Court Sq: "7"
+            39 Av: [N,Q]
+            33 St-Rawson St: "7"
+            Woodside-61 St: "7d"
         lines:
             - N
             - Q
+            - "7"
+            - "7d"
         borough: Queens
     Rockaway Blvd:
         loc:
@@ -3555,8 +3663,11 @@ Station:
         borough: Queens
     Seneca Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.702765
+            long: -73.907733
+        edges:
+            Myrtle-Wyckoff Avs: M
+            Forest Av: M
         lines:
             - M
         borough: Queens
@@ -3586,8 +3697,8 @@ Station:
         borough: Queens
     Vernon Blvd-Jackson Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.74264
+            long: -73.95391
         edges:
             Grand Central-42 St: "7"
             Court Sq: "7"
@@ -3612,8 +3723,12 @@ Station:
         borough: Queens
     Woodside-61 St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.745608
+            long: -73.902967
+        edges:
+            Queensboro Plaza: "7d"
+            LaGuardia Airport: Q47
         lines:
             - "7"
+            - "7d"
         borough: Queens
