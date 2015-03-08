@@ -201,8 +201,11 @@ Station:
         borough: The Bronx
     Bedford Park Blvd:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.872507
+            long: -73.887906
+        edges:
+            Kingsbridge Rd (B/D): D
+            Norwood-205 St: D
         lines:
             - B
             - D
@@ -310,8 +313,11 @@ Station:
         borough: The Bronx
     Fordham Rd:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.862414
+            long: -73.897133
+        edges:
+            Tremont Av: D
+            Kingsbridge Rd (B/D): D
         lines:
             - B
             - D
@@ -362,17 +368,20 @@ Station:
             - "2"
             - "5"
         borough: The Bronx
-    Kingsbridge Rd:
+    Kingsbridge Rd (4):
         loc:
             lat: 0.0
             long: 0.0
         lines:
             - "4"
         borough: The Bronx
-    Kingsbridge Rd:
+    Kingsbridge Rd (B/D):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.866146
+            long: -73.894343
+        edges:
+            Fordham Rd: D
+            Tremont Av: D
         lines:
             - B
             - D
@@ -429,8 +438,10 @@ Station:
         borough: The Bronx
     Norwood-205 St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.874908
+            long: -73.879452
+        edges:
+            Bedford Park Blvd: D
         lines:
             - D
         borough: The Bronx
@@ -488,8 +499,11 @@ Station:
         borough: The Bronx
     Tremont Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.849463
+            long: -73.905973
+        edges:
+            145 St (A/B/C/D): D
+            Fordham Rd: D
         lines:
             - B
             - D
@@ -655,15 +669,18 @@ Station:
             - N
             - R
         borough: Brooklyn
-    7 Av:
+    7 Av (B/Q):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.679352
+            long: -73.973694
+        edges:
+            Prospect Park (B/Q/S): [B,Q]
+            Atlantic Av-Barclays Ctr: B
         lines:
             - B
             - Q
         borough: Brooklyn
-    7 Av:
+    7 Av (F/G):
         loc:
             lat: 0.0
             long: 0.0
@@ -731,6 +748,9 @@ Station:
         loc:
             lat: 40.684462
             long: -73.978758
+        edges:
+            Grand St (B/D): D
+            7 Av (B/Q): B
         lines:
             - "2"
             - "3"
@@ -914,8 +934,10 @@ Station:
         borough: Brooklyn
     Brighton Beach:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.577598
+            long: -73.961565
+        edges:
+            Sheepshead Bay: B
         lines:
             - B
             - Q
@@ -934,6 +956,10 @@ Station:
         loc:
             lat: 40.678919
             long: -73.903453
+        edges:
+            Bushwick Av-Aberdeen St: L
+            Euclid Av: A
+            Chauncey St: J
         lines:
             - A
             - C
@@ -943,8 +969,11 @@ Station:
         borough: Brooklyn
     Bushwick Av-Aberdeen St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.682851
+            long: -73.905158
+        edges:
+            Wilson Av: L
+            Broadway Junction: L
         lines:
             - L
         borough: Brooklyn
@@ -975,8 +1004,11 @@ Station:
         borough: Brooklyn
     Chauncey St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.682623
+            long: -73.910136
+        edges:
+            Halsey St (J): J
+            Broadway Junction: J
         lines:
             - J
             - Z
@@ -993,6 +1025,9 @@ Station:
         loc:
             lat: 40.64966
             long: -73.963646
+        edges:
+            Prospect Park (B/Q/S): [B,Q]
+            Newkirk Plaza (B/Q): B
         lines:
             - B
             - Q
@@ -1105,6 +1140,9 @@ Station:
         loc:
             lat: 40.690254
             long: -73.982277
+        edges:
+            Grand St (B/D): B
+            Atlantic Av-Barclays Ctr: B
         lines:
             - B
             - D
@@ -1148,6 +1186,9 @@ Station:
         loc:
             lat: 40.675366
             long: -73.871899
+        edges:
+            Broadway Junction: A
+            Grant Av: A
         lines:
             - A
             - C
@@ -1203,17 +1244,17 @@ Station:
         lines:
             - N
         borough: Brooklyn
-    Franklin Av/Botanic Garden:
-        loc:
-            lat: 40.670711
-            long: -73.958545
-        lines:
-            - "2"
-            - "3"
-            - "4"
-            - "5"
-            - S
-        borough: Brooklyn
+    #Franklin Av/Botanic Garden:
+        #loc:
+            #lat: 40.670711
+            #long: -73.958545
+        #lines:
+            #- "2"
+            #- "3"
+            #- "4"
+            #- "5"
+            #- S
+        #borough: Brooklyn
     Franklin Av:
         loc:
             lat: 40.681126
@@ -1235,8 +1276,11 @@ Station:
         borough: Brooklyn
     Gates Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.68949
+            long: -73.922067
+        edges:
+            Kosciuszko St: J
+            Halsey St (J): J
         lines:
             - J
             - Z
@@ -1271,8 +1315,11 @@ Station:
         borough: Brooklyn
     Grant Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.676635
+            long: -73.86559
+        edges:
+            Euclid Av: A
+            80 St: A
         lines:
             - A
         borough: Brooklyn
@@ -1288,15 +1335,21 @@ Station:
         borough: Brooklyn
     Halsey St (J):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.685682
+            long: -73.915458
+        edges:
+            Gates Av: J
+            Chauncey St: J
         lines:
             - J
         borough: Brooklyn
     Halsey St (L):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.696095
+            long: -73.905029
+        edges:
+            Myrtle-Wyckoff Avs: L
+            Wilson Av: L
         lines:
             - L
         borough: Brooklyn
@@ -1372,10 +1425,13 @@ Station:
         lines:
             - "3"
         borough: Brooklyn
-    Kings Hwy:
+    Kings Hwy (B/Q):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.609229
+            long: -73.95884
+        edges:
+            Newkirk Plaza (B/Q): B
+            Sheepshead Bay: B
         lines:
             - B
             - Q
@@ -1424,6 +1480,7 @@ Station:
             long: -73.928633
         edges:
             Myrtle Av: J
+            Gates Av: J
         lines:
             - J
         borough: Brooklyn
@@ -1436,8 +1493,10 @@ Station:
         borough: Brooklyn
     Liberty Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.674357
+            long: -73.896489
+        edges:
+            Broadway Junction: C
         lines:
             - C
         borough: Brooklyn
@@ -1535,7 +1594,9 @@ Station:
             long: -73.911166
         edges:
             DeKalb Av (L): L
+            Halsey St (L): L
             Seneca Av: M
+            Knickerbocker Av: M
         lines:
             - L
             - M
@@ -1605,8 +1666,11 @@ Station:
         borough: Brooklyn
     Newkirk Plaza (B/Q):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.6357
+            long: -73.963
+        edges:
+            Church Av (B/Q): B
+            Kings Hwy (B/Q): B
         lines:
             - B
             - Q
@@ -1681,8 +1745,11 @@ Station:
         borough: Brooklyn
     Prospect Park (B/Q/S):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.661507
+            long: -73.962461
+        edges:
+            Church Av (B/Q): B
+            7 Av (B/Q): B
         lines:
             - B
             - Q
@@ -1718,8 +1785,11 @@ Station:
         borough: Brooklyn
     Sheepshead Bay:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.587168
+            long: -73.953266
+        edges:
+            Kings Hwy (B/Q): B
+            Brighton Beach: B
         lines:
             - B
             - Q
@@ -1808,8 +1878,11 @@ Station:
         borough: Brooklyn
     Wilson Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.688416
+            long: -73.904257
+        edges:
+            Halsey St (L): L
+            Bushwick Av-Aberdeen St: L
         lines:
             - L
         borough: Brooklyn
@@ -2203,6 +2276,9 @@ Station:
         loc:
             lat: 40.740169
             long: -73.98644
+        edges:
+            28 St (6): "6"
+            14 St-Union Sq: "6"
         lines:
             - "6"
         borough: Manhattan
@@ -2244,6 +2320,8 @@ Station:
         loc:
             lat: 40.746389
             long: -73.981944
+        edges:
+            33 St: "6"
         lines:
             - "6"
         borough: Manhattan
@@ -2272,6 +2350,9 @@ Station:
         loc:
             lat: 40.746389
             long: -73.981944
+        edges:
+            Grand Central-42 St: "6"
+            28 St (6): "6"
         lines:
             - "6"
         borough: Manhattan
@@ -2312,18 +2393,19 @@ Station:
             - C
             - E
         borough: Manhattan
-    # networkx bug?!
-    #42 St-Bryant Pk:
-    #    loc:
-    #        lat: 40.754799
-    #        long: -73.984208
-    #    lines:
-    #        - B
-    #        - D
-    #        - F
-    #        - M/5 Av
-    #        - "7"
-    #    borough: Manhattan
+    42 St-Bryant Pk:
+        loc:
+            lat: 40.754799
+            long: -73.984208
+        edges:
+            West 4 St-Washington Sq: D
+        lines:
+            - B
+            - D
+            - F
+            - M/5 Av
+            - "7"
+        borough: Manhattan
     47-50 Sts-Rockefeller Center:
         loc:
             lat: 0.0
@@ -2439,10 +2521,11 @@ Station:
         lines:
             - L
         borough: Manhattan
-    7 Av:
+    7 Av (B/D/E):
         loc:
             lat: 0.0
             long: 0.0
+        edges:
         lines:
             - B
             - D
@@ -2617,7 +2700,8 @@ Station:
             long: -73.994722
         edges:
             2 Av: F
-            West 4 St-Washington Sq: F
+            Grand St: [B,D]
+            West 4 St-Washington Sq: [B,D,F]
             14 St-Union Sq: "6"
             Spring St (6): "6"
         lines:
@@ -2773,6 +2857,7 @@ Station:
             York St: F
             2 Av: G
         lines:
+            - F
             - J
             - M
             - Z
@@ -2847,8 +2932,11 @@ Station:
         borough: Manhattan
     Grand St (B/D):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.718119
+            long: -73.993864
+        edges:
+            Bleecker Street / Broadway - Lafayette Street: [B,D]
+            Atlantic Av-Barclays Ctr: D
         lines:
             - B
             - D
@@ -3043,7 +3131,8 @@ Station:
             lat: 40.731682
             long: -74.000945
         edges:
-            Bleecker Street / Broadway - Lafayette Street: F
+            42 St-Bryant Pk: D
+            Bleecker Street / Broadway - Lafayette Street: [B,D,F]
             14 St/6 Av: F
         lines:
             - A
@@ -3074,14 +3163,17 @@ Station:
         lines:
             - "7"
         borough: Queens
-    104 St:
+    104 St (A):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.682233
+            long: -73.837352
+        edges:
+            Rockaway Blvd: A
+            111 St (A): A
         lines:
             - A
         borough: Queens
-    104 St:
+    104 St (J/Z):
         loc:
             lat: 0.0
             long: 0.0
@@ -3089,24 +3181,32 @@ Station:
             - J
             - Z
         borough: Queens
-    111 St:
+    111 St (7):
         loc:
             lat: 0.0
             long: 0.0
         lines:
             - "7"
         borough: Queens
-    111 St:
+    111 St (A):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.684673
+            long: -73.831129
+        edges:
+            104 St (A):
+            Ozone Park-Lefferts Blvd: A
+            Aqueduct Racetrack: Q37
+            111 St (J): Q37
         lines:
             - A
         borough: Queens
-    111 St:
+    111 St (J):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.696876
+            long: -73.837223
+        edges:
+            111 St (A): Q37
+            Kew Gardens-Union Turnpike: Q37
         lines:
             - J
         borough: Queens
@@ -3283,8 +3383,11 @@ Station:
         borough: Queens
     80 St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.679434
+            long: -73.857822
+        edges:
+            Grant Av: A
+            88 St: A
         lines:
             - A
         borough: Queens
@@ -3304,8 +3407,11 @@ Station:
         borough: Queens
     88 St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.679857
+            long: -73.850698
+        edges:
+            80 St: A
+            Rockaway Blvd: A
         lines:
             - A
         borough: Queens
@@ -3320,6 +3426,10 @@ Station:
         loc:
             lat: 40.672086
             long: -73.835914
+        edges:
+            Rockaway Blvd: A
+            Aqueduct-North Conduit Av: A
+            111 St (A): Q37
         lines:
             - A
         borough: Queens
@@ -3327,6 +3437,8 @@ Station:
         loc:
             lat: 0.0
             long: 0.0
+        edges:
+            Aqueduct Racetrack: A
         lines:
             - A
         borough: Queens
@@ -3571,8 +3683,10 @@ Station:
         borough: Queens
     Kew Gardens-Union Turnpike:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.714151
+            long: -73.830786
+        edges:
+            111 St (J): Q37
         lines:
             - E
             - F
@@ -3608,8 +3722,10 @@ Station:
         borough: Queens
     Ozone Park-Lefferts Blvd:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.686203
+            long: -73.82422
+        edges:
+            111 St (A): A
         lines:
             - A
         borough: Queens
@@ -3648,8 +3764,11 @@ Station:
         borough: Queens
     Rockaway Blvd:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.680459
+            long: -73.843703
+        edges:
+            88 St: A
+            Aqueduct Racetrack: A
         lines:
             - A
         borough: Queens
