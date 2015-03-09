@@ -5,21 +5,26 @@ from math import sqrt
 from pprint import pprint
 from itertools import takewhile, dropwhile, groupby, starmap
 
-import networkx as nx
+try:
+    import networkx as nx
+except ImportError:
+    # pypy needs this
+    import sys
+    sys.path.insert(0, './venv/lib/python2.7/site-packages')
+    import networkx as nx
+
 import yaml
 
 SubwayStations = dict()
 with open('./data/ref/nyc-subway-station-complexes-2013.yml') as f:
     SubwayStations = yaml.load(f)
 
-#pprint(SubwayStations, width=150)
-
 SubwayGraphX = nx.MultiDiGraph()
 
+print 'needs edges:', # remind self of incomplete graph data...
 # build digraphs for each line
 for name, station in SubwayStations['Station'].iteritems():
     if 'edges' in station:
-        #print name
         if station['edges']:
             for to, lines in station['edges'].iteritems():
                 if isinstance(lines, dict):
@@ -29,11 +34,10 @@ for name, station in SubwayStations['Station'].iteritems():
                     if not isinstance(lines, list):
                         lines = [lines]
                     for line in lines:
-                        if line == 'Z':
-                            continue
                         SubwayGraphX.add_edge(name, to, key=line)
     else:
-        print 'need edges: %s' % name
+        print '%s,' % name.rstrip(),
+print ''
 
 # TODO: add the ability to extract individual lines out as diffs, then add them back in
 
@@ -56,7 +60,7 @@ def latlongdist(x, y):
                 (abs(x['long'] - y['long'])**2))
 
 def latlongdist_walking(x, y):
-    return latlongdist(x, y) * 1.2
+    return latlongdist(x, y) * 1.3
     # FIXME: assuming right angles for everything is actually not the best way to go, as NYC
     # is not laid out in a strictly N/S/E/W grid...
     # walking along streets is much more like right angles than as-the-crow-flies direct routes...
@@ -81,6 +85,7 @@ def shortest_path(g, source=None, target=None):
         return []
 
 def time_to_walk_in_seconds(person, meters):
+    # TODO: separate horizontal and vertical walking...
     return meters / person.walking_speed_mps
 
 def latlongdist_to_meters(latlongdiff):
@@ -90,7 +95,14 @@ def latlongdist_to_meters(latlongdiff):
 def time_subway_speed_over_dist_mps(meters):
     # TODO: take a real guess
     # a better guess would take distance into account and the speed and brake curves...
-    return meters / 15 # FIXME: real guess
+    if meters < 1000: return meters / 5
+    return (1000 / 5) + ((meters - 500) / 15)
+    #return meters / 15 # ~34 mph # FIXME: real guess
+
+def time_bus_speed_over_dist_mps(meters):
+    # TODO: take a real guess
+    # a better guess would take distance into account and the speed and brake curves...
+    return meters / 9 # ~20 mph # FIXME: real guess
 
 def time_avg_plus_line_changes(route):
     # given a route, calculate the time the route would take
@@ -151,19 +163,28 @@ class SubwayTrip(object):
         self.path = path#shortest_path(SubwayGraphX, source=st1, target=st2)
         self.route = list(starmap(SubwayEdge, zip(self.path, self.path[1:])))
         self.distance = sum(x.distance for x in self.route)
-        self.min_line_changes = len(self.calc_lines()) - 1
+        self.route_by_line = self.calc_lines()
+        self.line_change_count = len(self.route_by_line) - 1
 
     def calc_lines(self):
-        lines = [lines for lines, edges in groupby(self.route,
-                                                   lambda e: e.lines)]
-        l = []
+        # given a possibly ambiguous route, converge contiguous runs of the same line
+        # [(line, edges), ...]
+        lines = self.edges_by_line()
+        lg = []
         while lines:
             # segment route into contiguous runs of the same line, and swallow dupes
-            line = lines.pop(0)
-            while lines and line & lines[0]:
-                line = line & lines.pop(0)
-            l.append(line)
-        return l
+            line, edges = lines.pop(0)
+            while lines and line & lines[0][0]:
+                l, e = lines.pop(0)
+                line = line & l
+                edges.extend(e)
+            lg.append((line, edges))
+        return lg
+
+    def edges_by_line(self):
+        return [(lines, list(edges))
+                    for lines, edges in groupby(self.route,
+                                                lambda e: e.lines)]
 
     def __eq__(self, other):
         return self.path == other.path
@@ -187,25 +208,24 @@ class SubwayTrip(object):
             time_subway_speed_over_dist_mps(latlongdist_to_meters(dist_between_stations))
             + (len(self.route) * 30) # stops in station
         )
-        time_changing_lines = self.min_line_changes * 360
+        time_changing_lines = self.line_change_count * 360
         return time_walk_to_first + time_between_stations + time_changing_lines + time_walk_from_last
     def format(self, condensed=False):
         print '    SubwayTrip (%s, %s, dist=%.3f, time_avg=%s, line_changes=%s)' % (
-            self.st1, self.st2, self.distance, sec_to_min(self.time_avg()), self.min_line_changes)
-        print '        ', 'walk to %s dist=%.3f' % (self.st1, self.dist_walk_to_first)
+            self.st1, self.st2, self.distance, sec_to_min(self.time_avg()), self.line_change_count)
+        print '        ', 'walk to %s dist=%.3f time=%s' % (self.st1, self.dist_walk_to_first,
+            sec_to_min(time_to_walk_in_seconds(self.person,
+                                               latlongdist_to_meters(self.dist_walk_to_first))))
         if condensed:
-            for lines, edges in self.edges_by_line():
-                # ', '.join(SubwayEdge.stationlist(edges)))
+            for lines, edges in self.route_by_line:
                 first, last = SubwayEdge.first_and_last(edges)
                 print '         %-9s %s -> %s' % ('/'.join(sorted(lines)), first, last)
         else:
             for edge in self.route:
                 print '        ', edge
-        print '        ', 'walk from %s dist=%.3f' % (self.st2, self.dist_walk_from_last)
-    def edges_by_line(self):
-        return [(lines, list(edges))
-                    for lines, edges in groupby(self.route,
-                                                lambda e: e.lines)]
+        print '        ', 'walk from %s dist=%.3f times=%s' % (self.st2, self.dist_walk_from_last,
+            sec_to_min(time_to_walk_in_seconds(self.person,
+                                               latlongdist_to_meters(self.dist_walk_from_last))))
 
 def walking_distance_meters():
     return 1500
@@ -225,8 +245,9 @@ class SubwayPossibilities(object):
         self.start = start
         self.goal = goal
         stations_nearest_start = stations_nearest_within_walking_distance(start, atleast=1, atmost=8)
-        stations_nearest_goal = stations_nearest_within_walking_distance(goal, atleast=1, atmost=8)
+        # TODO: the farther away from the goal our start is, the less it's worth optimizing the starting point...
         pprint(stations_nearest_start, width=150)
+        stations_nearest_goal = stations_nearest_within_walking_distance(goal, atleast=1, atmost=8)
         pprint(stations_nearest_goal, width=150)
         self.trips = set(starmap(SubwayTrip,
             [(person, list(path), start, goal)
@@ -235,7 +256,7 @@ class SubwayPossibilities(object):
                     for path in set(map(tuple,
                         list(nx.all_simple_paths(SubwayGraphX, source=x,
                                                           target=y,
-                                                          cutoff=12)) + \
+                                                          cutoff=11)) + \
                         [shortest_path(SubwayGraphX, source=x,
                                                     target=y)])) if path]))
         self.trips = [y for x, y in
@@ -285,7 +306,7 @@ if __name__ == '__main__':
     _36_Av = {'lat': 40.756555, 'long': -73.929791}
     _LaGuardia = {'lat': 40.77725, 'long': -73.872611}
     _Lorimer_Met_Av = {'lat': 40.712752, 'long': -73.951464}
-    _Times_Sq = {'lat': 40.756, 'long': -73.987}
+    Times_Sq = {'lat': 40.756, 'long': -73.987}
     _Lexington_Av = {'lat': 40.762471, 'long': -73.9679}
     _49_St = {'lat': 40.760423, 'long': -73.983779}
     _ResortsWorld = {'lat': 40.672663, 'long': -73.832625}
@@ -296,19 +317,36 @@ if __name__ == '__main__':
 
     KosciuszkoSt = {'lat': 40.693167, 'long': -73.928633}
 
-    BarclaysCtr = {'lat': 40.684462, 'long': -73.978758}
-    BrightonBeach = {'lat': 40.577598, 'long': -73.961565}
-    ProspectPark = {'lat': 40.661507, 'long': -73.962461}
     BryantPark = {'lat': 40.754799, 'long': -73.984208}
+    BarclaysCtr = {'lat': 40.684462, 'long': -73.978758}
+    ChurchAvBQ = {'lat': 40.64966, 'long': -73.963646}
+    ProspectPark = {'lat': 40.661507, 'long': -73.962461}
+    BrightonBeach = {'lat': 40.577598, 'long': -73.961565}
+    _7AvBQ = {'lat': 40.679352, 'long': -73.973694}
+
+    Foresthills71Av = {'lat': 40.721404, 'long': -73.844004}
+    Jamaica_179_St = {'lat': 40.712459, 'long': -73.78448}
+    _121_St = {'lat': 40.700357, 'long': -73.82894}
+    Broadway_Junction = {'lat': 40.678919, 'long': -73.903453}
+
+    Crescent_St = {'lat': 40.683665, 'long': -73.872414}
+
+    Woodhaven_Blvd_JZ = {'lat': 40.693622, 'long': -73.852158}
+    _75_Av = {'lat': 40.71864, 'long': -73.837738}
+    Sutphin_Blvd_Archer_Av_JFK_Airport = {'lat': 40.700488, 'long': -73.80774}
+
+    Grand_Central = {'lat': 40.7528, 'long': -73.976522}
+
+    Parkchester = {'lat': 40.832937, 'long': -73.862758}
 
     print '--------------'
 
-    p = AggressiveWalkerProfile()
-    #p = PersonalProfile()
+    #p = AggressiveWalkerProfile()
+    p = PersonalProfile()
 
     #t = Trip(p, _171_Stanhope, _80_Broad_St)
     #t = Trip(p, _80_Broad_St, _171_Stanhope)
-    #t = Trip(p, _80_Broad_St, _125_St)
+    t = Trip(p, _80_Broad_St, _125_St)
     #t = Trip(p, _171_Stanhope, _125_St)
     #t = Trip(p, _80_Broad_St, _Columbus_Circle)
     #t = Trip(p, _Court_Sq, _125_St)
@@ -321,18 +359,35 @@ if __name__ == '__main__':
     #t = Trip(p, _171_Stanhope, _Court_Sq)
     #t = Trip(p, _171_Stanhope, _Lorimer_Met_Av)
     #t = Trip(p, _Lorimer_Met_Av, _Court_Sq)
-    #t = Trip(p, _Times_Sq, _LaGuardia)
+    #t = Trip(p, Times_Sq, _LaGuardia)
     #t = Trip(p, _Lexington_Av, _LaGuardia)
     #t = Trip(p, _49_St, _Lexington_Av)
     #t = Trip(p, _49_St, _LaGuardia)
-    t = Trip(p, _171_Stanhope, _ResortsWorld)
+    #t = Trip(p, _171_Stanhope, _ResortsWorld)
     #t = Trip(p, _MyrtleAv, _ResortsWorld)
     #t = Trip(p, _GatesAv, _ResortsWorld)
     #t = Trip(p, _ChaunceySt, _ResortsWorld)
     #t = Trip(p, KosciuszkoSt, _ResortsWorld)
-    #t = Trip(p, BryantPark, BrightonBeach) # XXX: FIXME: even with cutoff=15 doesn't find...
     #t = Trip(p, BarclaysCtr, BrightonBeach)
     #t = Trip(p, BryantPark, BarclaysCtr)
+    #t = Trip(p, BryantPark, BrightonBeach)
+
+    #t = Trip(p, Foresthills71Av, _80_Broad_St)
+
+    #t = Trip(p, Jamaica_179_St, _80_Broad_St) # FIXME: too slow, needs cutoff=15 since our graph is overly simplified as station-to-station when it should be based on line. ah well..
+    #t = Trip(p, _75_Av, _80_Broad_St)
+
+    #t = Trip(p, _121_St, _80_Broad_St)
+    #t = Trip(p, _121_St, Broadway_Junction)
+    #t = Trip(p, Crescent_St, Broadway_Junction)
+    #t = Trip(p, _121_St, Woodhaven_Blvd_JZ) # works
+    #t = Trip(p, Woodhaven_Blvd_JZ, Crescent_St) # one stop
+
+    #t = Trip(p, Sutphin_Blvd_Archer_Av_JFK_Airport, _80_Broad_St)
+    #t = Trip(p, Woodhaven_Blvd_JZ, _80_Broad_St)
+
+    #t = Trip(p, Times_Sq, _80_Broad_St)
+    #t = Trip(p, Parkchester, _80_Broad_St)
 
     t.format(condensed=True)
 

@@ -39,16 +39,23 @@ Line:
 Station:
     138 St-Grand Concourse:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.81303
+            long: -73.929963
+        edges:
+            125 St (4/5/6): "5"
+            149 St-Grand Concourse: "5"
         lines:
             - "4"
             - "5"
         borough: The Bronx
     149 St-Grand Concourse:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.8181
+            long: -73.9275
+        edges:
+            138 St-Grand Concourse: "5"
+            3 Av-149 St: ["2","5"]
+            125 St (4/5/6): "4"
         lines:
             - "2"
             - "4"
@@ -56,8 +63,11 @@ Station:
         borough: The Bronx
     161 St-Yankee Stadium:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.827937
+            long: -73.925886
+        edges:
+            155 St (B/D): [B,D]
+            149 St-Grand Concourse: "4"
         lines:
             - B
             - D
@@ -171,15 +181,20 @@ Station:
         borough: The Bronx
     3 Av-138 St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.810983
+            long: -73.927217
+        edges:
+            125 St (4/5/6): "6"
         lines:
             - "6"
         borough: The Bronx
     3 Av-149 St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.816099
+            long: -73.917676
+        edges:
+            149 St-Grand Concourse: "5"
+            East 180 St: "5"
         lines:
             - "2"
             - "5"
@@ -256,10 +271,13 @@ Station:
         borough: The Bronx
     Castle Hill Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.834139
+            long: -73.851686
+        edges:
+            Parkchester: ["6","6d"]
         lines:
             - "6"
+            - "6d"
         borough: The Bronx
     Cypress Av:
         loc:
@@ -284,8 +302,10 @@ Station:
         borough: The Bronx
     East 180 St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.841
+            long: -73.874
+        edges:
+            3 Av-149 St: "5"
         lines:
             - "2"
             - "5"
@@ -347,10 +367,14 @@ Station:
         borough: The Bronx
     Hunts Point Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.820565
+            long: -73.89164
+        edges:
+            3 Av-138 St: "6d"
+            Parkchester: "6d"
         lines:
             - "6"
+            - "6d"
         borough: The Bronx
     Intervale Av:
         loc:
@@ -447,8 +471,11 @@ Station:
         borough: The Bronx
     Parkchester:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.832937
+            long: -73.862758
+        edges:
+            Hunts Point Av: "6d"
+            Castle Hill Av: ["6","6d"]
         lines:
             - "6"
         borough: The Bronx
@@ -640,7 +667,7 @@ Station:
         lines:
             - R
         borough: Brooklyn
-    50 St:
+    50 St (D):
         loc:
             lat: 0.0
             long: 0.0
@@ -739,10 +766,14 @@ Station:
         borough: Brooklyn
     Alabama Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.67683
+            long: -73.900008
+        edges:
+            Broadway Junction: [J,Z]
+            Crescent St: Z
         lines:
             - J
+            - Z
         borough: Brooklyn
     Atlantic Av-Barclays Ctr:
         loc:
@@ -960,6 +991,7 @@ Station:
             Bushwick Av-Aberdeen St: L
             Euclid Av: A
             Chauncey St: J
+            Myrtle Av: Z
         lines:
             - A
             - C
@@ -1113,8 +1145,10 @@ Station:
         borough: Brooklyn
     Crescent St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.683665
+            long: -73.872414
+        edges:
+            Alabama Av: Z
         lines:
             - J
             - Z
@@ -1216,8 +1250,8 @@ Station:
             lat: 40.700683
             long: -73.941979
         edges:
-            Lorimer St (J/M): ["J","M"]
-            Myrtle Av: ["J","M"]
+            Lorimer St (J/M): [J,M]
+            Myrtle Av: [J,M]
         lines:
             - J
             - M
@@ -1573,10 +1607,21 @@ Station:
             Marcy Av: Z
             Kosciuszko St: J
             Central Av: M
+            JFK Airport: B15
         lines:
             - J
             - M
             - Z
+        layout:
+            # ref: https://en.wikipedia.org/wiki/Myrtle_Avenue_(BMT_Jamaica_Line)#Station_layout
+            "3F":
+            "2F":
+            "1F":
+                Fare control:
+                Station agent:
+            G:
+                Exit:
+                Entrance:
         borough: Brooklyn
     Myrtle-Willoughby Avs:
         loc:
@@ -1985,7 +2030,8 @@ Station:
             lat: 40.807
             long: -73.945
         edges:
-            125 St (4/5/6): M60 SBS
+            125 St (4/5/6): [M60 SBS, M100, M101]
+            125 St (A/B/C/D): [M60 SBS, M100, M101]
         lines:
             - "2"
             - "3"
@@ -1995,7 +2041,10 @@ Station:
             lat: 40.804259
             long: -73.937473
         edges:
-            125 St (2/3): M60 SBS
+            3 Av-138 St: "6"
+            138 St-Grand Concourse: "5"
+            125 St (2/3): [M60 SBS, M100, M101]
+            86 St (4/5/6): ["4","5"]
             Astoria Blvd: M60 SBS
             Harlem Line:
                 type: train
@@ -2037,9 +2086,9 @@ Station:
             lat: 40.810756
             long: -73.952665
         edges:
-            145 St (A/B/C/D): ["A","B","C","D"]
-            125 St (2/3): M60 SBS
-            59 St-Columbus Circle: ["A","D"]
+            145 St (A/B/C/D): [A,B,C,D]
+            125 St (2/3): [M60 SBS, M100, M101]
+            59 St-Columbus Circle: [A,D]
         lines:
             - A
             - B
@@ -2076,6 +2125,7 @@ Station:
         edges:
             6 Av: L
             14 St-Union Sq: L
+            West 4 St-Washington Sq: A
         lines:
             - A
             - C
@@ -2109,6 +2159,7 @@ Station:
             23 St (6): "6"
             Brooklyn Bridge-City Hall/Chambers St: ["4", "5"]
             Grand Central-42 St: ["4", "5"]
+            Canal St (J/N/Q/R/Z/6): Q
         switch:
             L:
                 4/5:
@@ -2149,7 +2200,8 @@ Station:
             lat: 0.0
             long: 0.0
         edges:
-            125 St (A/B/C/D): ["A","B","C","D"]
+            125 St (A/B/C/D): [A,B,C,D]
+            155 St (B/D): [B,D]
         lines:
             - A
             - B
@@ -2158,8 +2210,10 @@ Station:
         borough: Manhattan
     155 St (B/D):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.829917
+            long: -73.939104
+        edges:
+            161 St-Yankee Stadium: [B,D]
         lines:
             - B
             - D
@@ -2205,8 +2259,8 @@ Station:
         borough: Manhattan
     18 St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.741
+            long: -73.998
         edges:
             14 St (1/2/3): "1"
             23 St (1): "1"
@@ -2267,8 +2321,11 @@ Station:
         borough: Manhattan
     23 St (1):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.744
+            long: -73.996
+        edges:
+            18 St: "1"
+            28 St (1): "1"
         lines:
             - "1"
         borough: Manhattan
@@ -2311,8 +2368,11 @@ Station:
         borough: Manhattan
     28 St (1):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.747
+            long: -73.993
+        edges:
+            23 St (1): "1"
+            34 St-Penn Station (1/2/3): "1"
         lines:
             - "1"
         borough: Manhattan
@@ -2362,6 +2422,7 @@ Station:
             long: -73.987985
         edges:
             28 St (N/R): [N,R]
+            14 St-Union Sq: Q
         lines:
             - B
             - D
@@ -2377,8 +2438,9 @@ Station:
             long: -73.991
         edges:
             Times Sq-42 St: ["1","2","3"]
-            34 St-Penn Station (A/C/E): LIRR
             14 St (1/2/3): ["1","2","3"]
+            34 St-Penn Station (A/C/E): LIRR
+            Woodside-61 St: LIRR
         lines:
             - "1"
             - "2"
@@ -2388,6 +2450,10 @@ Station:
         loc:
             lat: 40.752166
             long: -73.993521
+        edges:
+            42 St-Port Authority Bus Terminal: A
+            34 St-Penn Station (1/2/3): LIRR
+            14 St/8 Av: A
         lines:
             - A
             - C
@@ -2406,10 +2472,26 @@ Station:
             - M/5 Av
             - "7"
         borough: Manhattan
+    42 St-Port Authority Bus Terminal:
+        loc:
+            lat: 40.7569737
+            long: -73.9904986
+        edges:
+            59 St-Columbus Circle: A
+            34 St-Penn Station (A/C/E): A
+        lines:
+            - A
+            - C
+            - E
+            - LIRR
+        borough: Manhattan
     47-50 Sts-Rockefeller Center:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.758603
+            long: -73.981376
+        edges:
+            5 Av-53 St: M
+            42 St-Bryant Pk: [B,D]
         lines:
             - B
             - D
@@ -2430,8 +2512,10 @@ Station:
         borough: Manhattan
     5 Av-53 St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.760326
+            long: -73.975754
+        edges:
+            51 St / Lexington Av-53 St: [E,M]
         lines:
             - E
             - M
@@ -2448,14 +2532,14 @@ Station:
             - Q
             - R
         borough: Manhattan
-    50 St:
+    50 St (1):
         loc:
             lat: 0.0
             long: 0.0
         lines:
             - "1"
         borough: Manhattan
-    50 St:
+    50 St (C/E):
         loc:
             lat: 0.0
             long: 0.0
@@ -2490,6 +2574,8 @@ Station:
             125 St (A/B/C/D): ["A","D"]
             Times Sq-42 St: "1"
             72 St (1/2/3): "1"
+            42 St-Port Authority Bus Terminal: A
+            66 St-Lincoln Center: "1"
         lines:
             - A
             - B
@@ -2499,8 +2585,11 @@ Station:
         borough: Manhattan
     66 St-Lincoln Center:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.774
+            long: -73.982
+        edges:
+            59 St-Columbus Circle: "1"
+            72 St (1/2/3): "1"
         lines:
             - "1"
         borough: Manhattan
@@ -2513,8 +2602,8 @@ Station:
         borough: Manhattan
     6 Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.7374365
+            long: -73.9967796
         edges:
             14 St-Union Sq: L
             14 St/8 Av: L
@@ -2571,15 +2660,18 @@ Station:
         borough: Manhattan
     79 St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.784
+            long: -73.980
+        edges:
+            72 St (1/2/3): "1"
+            86 St (1/2/3): "1"
         lines:
             - "1"
         borough: Manhattan
     8 St-New York University:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.730543
+            long: -73.992448
         edges:
             14 St-Union Sq: [N,R]
             Prince St: [N,R]
@@ -2589,8 +2681,8 @@ Station:
         borough: Manhattan
     81 St-Museum of Natural History:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.781971
+            long: -73.971763
         lines:
             - B
             - C
@@ -2599,6 +2691,9 @@ Station:
         loc:
             lat: 40.785286
             long: -73.969316
+        edges:
+            79 St: "1"
+            96 St (1/2/3): "1"
         lines:
             - "1"
             - "2"
@@ -2610,6 +2705,7 @@ Station:
             long: -73.955626
         edges:
             125 St (4/5/6): ["4","5"]
+            Lexington Av/59 St: ["4","5"]
         lines:
             - "4"
             - "5"
@@ -2629,7 +2725,8 @@ Station:
             lat: 40.7941
             long: -73.972
         edges:
-            72 St (1/2/3): "1"
+            72 St (1/2/3): ["2","3"]
+            86 St (1/2/3): "1"
             168 St: "1"
         lines:
             - "1"
@@ -2700,7 +2797,7 @@ Station:
             long: -73.994722
         edges:
             2 Av: F
-            Grand St: [B,D]
+            Grand St (B/D): [B,D]
             West 4 St-Washington Sq: [B,D,F]
             14 St-Union Sq: "6"
             Spring St (6): "6"
@@ -2742,8 +2839,11 @@ Station:
         borough: Manhattan
     Canal St (A/C/E):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.72186
+            long: -74.005365
+        edges:
+            West 4 St-Washington Sq: A
+            Chambers St (A/C): A
         lines:
             - A
             - C
@@ -2751,8 +2851,8 @@ Station:
         borough: Manhattan
     Canal St (J/N/Q/R/Z/6):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.718056
+            long: -74
         edges:
             Prince St: [N,R]
             City Hall: R
@@ -2803,8 +2903,11 @@ Station:
         borough: Manhattan
     Chambers St (A/C):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.712655
+            long: -74.009657
+        edges:
+            Canal St (A/C/E): A
+            Fulton St: A
         lines:
             - A
             - C/WTC
@@ -2824,10 +2927,11 @@ Station:
         borough: Manhattan
     City Hall:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.71324
+            long: -74.007082
         edges:
-            Cortlandt St (R): R
+            Cortlandt St (R): [N,R]
+            Canal St (J/N/Q/R/Z/6): [N,R]
         lines:
             - R
         borough: Manhattan
@@ -2840,10 +2944,11 @@ Station:
         borough: Manhattan
     Cortlandt St (R):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.710735
+            long: -74.011245
         edges:
-            Canal St (J/N/Q/R/Z/6): R
+            City Hall: R
+            Rector St (R): R
         lines:
             - R
         borough: Manhattan
@@ -2898,7 +3003,8 @@ Station:
             lat: 40.709719
             long: -74.006842
         edges:
-            Chambers St (1/2/3): "1"
+            Chambers St (1/2/3): ["2","3"]
+            Chambers St (A/C): A
             Wall St (2/3): ["2", "3"]
             Wall St (4/5): ["4", "5"]
             Brooklyn Bridge-City Hall/Chambers St: ["4", "5", "J", "Z"]
@@ -2918,11 +3024,12 @@ Station:
             lat: 40.7528
             long: -73.976522
         edges:
-            Lexington Av/59 St: ["4","5","6"]
+            Lexington Av/59 St: ["4","5"]
             14 St-Union Sq: ["4","5"]
             Times Sq-42 St: [S,"7"]
             Vernon Blvd-Jackson Av: "7"
             125 St (4/5/6): Metro North
+            51 St / Lexington Av-53 St: "6"
         lines:
             - S
             - "4"
@@ -2935,7 +3042,7 @@ Station:
             lat: 40.718119
             long: -73.993864
         edges:
-            Bleecker Street / Broadway - Lafayette Street: [B,D]
+            DeKalb Av (B/D/N/Q/R): B
             Atlantic Av-Barclays Ctr: D
         lines:
             - B
@@ -2970,10 +3077,12 @@ Station:
             lat: 40.762471
             long: -73.9679
         edges:
-            Grand Central-42 St: ["4","5","6"]
+            Grand Central-42 St: ["4","5"]
             86 St (4/5/6): ["4","5"]
             Queensboro Plaza: [N,Q]
             5 Av-59 St: [N,Q,R]
+            51 St / Lexington Av-53 St: "6"
+            Roosevelt Island: F
         lines:
             - "4"
             - "5"
@@ -2982,27 +3091,25 @@ Station:
             - Q
             - R
         borough: Manhattan
-    Lexington Av-53 St:
+    51 St / Lexington Av-53 St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.758343
+            long: -73.971033
+        edges:
+            Grand Central-42 St: "6"
+            Lexington Av/59 St: "6"
+            5 Av-53 St: [E,M]
         lines:
+            - "6"
             - E
             - M
         borough: Manhattan
-    # networkx bug?!
-    #51 St:
-    #    loc:
-    #        lat: 40.757075
-    #        long: -73.971977
-    #    lines:
-    #        - "4"
-    #        - "6"
-    #    borough: Manhattan
     Lexington Av-63 St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.764649
+            long: -73.966398
+        edges:
+            59 St: "?"
         lines:
             - F
         borough: Manhattan
@@ -3015,8 +3122,8 @@ Station:
         borough: Manhattan
     Prince St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.724202
+            long: -73.997812
         edges:
             8 St-New York University: [N,R]
             Canal St (J/N/Q/R/Z/6): [N,R]
@@ -3036,8 +3143,8 @@ Station:
         borough: Manhattan
     Rector St (R):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.70771
+            long: -74.013004
         edges:
             Cortlandt St (R): R
             South Ferry/Whitehall St: R
@@ -3046,8 +3153,11 @@ Station:
         borough: Manhattan
     Roosevelt Island:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.759188
+            long: -73.953438
+        edges:
+            Lexington Av/59 St: F
+            21 St-Queensbridge: F
         lines:
             - F
         borough: Manhattan
@@ -3057,6 +3167,7 @@ Station:
             long: -74.012833
         edges:
             Rector St: "1"
+            St. George: Staten Island Ferry
         lines:
             - "1"
             - N
@@ -3074,12 +3185,14 @@ Station:
             - "6"
             - "6d"
         borough: Manhattan
-    Spring St (A/C/E):
+    Spring St (C/E):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.725503
+            long: -74.004035
+        edges:
+            West 4 St-Washington Sq: [C,E]
+            Canal St (A/C/E): [C,E]
         lines:
-            - A
             - C
             - E
         borough: Manhattan
@@ -3089,7 +3202,7 @@ Station:
             long: -73.987
         edges:
             34 St-Herald Square: [N,Q,R]
-            34 St-Penn Station (A/C/E): ["1","2","3"]
+            34 St-Penn Station (1/2/3): ["1","2","3"]
             59 St-Columbus Circle: "1"
             Grand Central-42 St: [S,"7"]
         lines:
@@ -3134,6 +3247,8 @@ Station:
             42 St-Bryant Pk: D
             Bleecker Street / Broadway - Lafayette Street: [B,D,F]
             14 St/6 Av: F
+            Canal St (A/C/E): A
+            Spring St (C/E): [C,E]
         lines:
             - A
             - B
@@ -3175,8 +3290,11 @@ Station:
         borough: Queens
     104 St (J/Z):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.695184
+            long: -73.843231
+        edges:
+            111 St (J): J
+            Woodhaven Blvd (J/Z): J
         lines:
             - J
             - Z
@@ -3193,7 +3311,7 @@ Station:
             lat: 40.684673
             long: -73.831129
         edges:
-            104 St (A):
+            104 St (A): A
             Ozone Park-Lefferts Blvd: A
             Aqueduct Racetrack: Q37
             111 St (J): Q37
@@ -3205,6 +3323,8 @@ Station:
             lat: 40.696876
             long: -73.837223
         edges:
+            104 St (J/Z): J
+            121 St: J
             111 St (A): Q37
             Kew Gardens-Union Turnpike: Q37
         lines:
@@ -3212,16 +3332,23 @@ Station:
         borough: Queens
     121 St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.700357
+            long: -73.82894
+        edges:
+            Sutphin Blvd-Archer Av-JFK Airport: J
+            111 St (J): J
+            Woodhaven Blvd (J/Z): Z
         lines:
             - J
             - Z
         borough: Queens
     169 St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.710638
+            long: -73.793063
+        edges:
+            Parsons Blvd: F
+            Jamaica-179 St: F
         lines:
             - F
         borough: Queens
@@ -3237,8 +3364,11 @@ Station:
         borough: Queens
     21 St-Queensbridge:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.753954
+            long: -73.942451
+        edges:
+            Roosevelt Island: F
+            74-Bway Jackson Hts-Roosevelt Av: F
         lines:
             - F
         borough: Queens
@@ -3358,6 +3488,9 @@ Station:
             long: -73.891519
         edges:
             LaGuardia Airport: Q47
+            Queens Plaza: E
+            21 St-Queensbridge: F
+            Forest Hills-71 Av: [E,F]
         lines:
             - "7"
             - E
@@ -3367,8 +3500,11 @@ Station:
         borough: Queens
     75 Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.71864
+            long: -73.837738
+        edges:
+            Kew Gardens-Union Turnpike: [E,F]
+            Forest Hills-71 Av: [E,F]
         lines:
             - E
             - F
@@ -3526,8 +3662,12 @@ Station:
         borough: Queens
     Briarwood-Van Wyck Blvd:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.70969
+            long: -73.81960
+        edges:
+            Kew Gardens-Union Turnpike: [E,F]
+            Sutphin Blvd: F
+            Jamaica-Van Wyck: E
         lines:
             - E
             - F
@@ -3559,6 +3699,8 @@ Station:
             Vernon Blvd-Jackson Av: "7"
             21 St: G
             Queensboro Plaza: "7"
+            Queens Plaza: E
+            51 St / Lexington Av-53 St: [E,M]
         lines:
             - E
             - G
@@ -3605,6 +3747,9 @@ Station:
         loc:
             lat: 40.721404
             long: -73.844004
+        edges:
+            74-Bway Jackson Hts-Roosevelt Av: [E,F]
+            75 Av: [E,F]
         lines:
             - E
             - F
@@ -3650,6 +3795,8 @@ Station:
         loc:
             lat: 40.702407
             long: -73.799973
+        edges:
+            Sutphin Blvd-Archer Av-JFK Airport: [E,J,Z]
         lines:
             - E
             - J
@@ -3657,15 +3804,20 @@ Station:
         borough: Queens
     Jamaica-179 St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.712459
+            long: -73.78448
+        edges:
+            169 St: F
         lines:
             - F
         borough: Queens
     Jamaica-Van Wyck:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.701905
+            long: -73.81656
+        edges:
+            Briarwood-Van Wyck Blvd: E
+            Sutphin Blvd-Archer Av-JFK Airport: E
         lines:
             - E
         borough: Queens
@@ -3687,6 +3839,8 @@ Station:
             long: -73.830786
         edges:
             111 St (J): Q37
+            Briarwood-Van Wyck Blvd: [E,F]
+            75 Av: [E,F]
         lines:
             - E
             - F
@@ -3731,22 +3885,26 @@ Station:
         borough: Queens
     Parsons Blvd:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.70771
+            long: -73.802762
+        edges:
+            Sutphin Blvd: F
+            169 St: F
         lines:
             - F
         borough: Queens
-    # FIXME: networkx bug?!
-    #Queens Plaza:
-        #loc:
-            #lat: 40.748915
-            #long: -73.937387
-        #edges:
-        #lines:
-            #- E
-            #- M
-            #- R
-        #borough: Queens
+    Queens Plaza:
+        loc:
+            lat: 40.748915
+            long: -73.937387
+        edges:
+            74-Bway Jackson Hts-Roosevelt Av: E
+            Court Sq: E
+        lines:
+            - E
+            - M
+            - R
+        borough: Queens
     Queensboro Plaza:
         loc:
             lat: 40.750653
@@ -3802,13 +3960,21 @@ Station:
         loc:
             lat: 40.700488
             long: -73.80774
+        edges:
+            Briarwood-Van Wyck Blvd: F
+            Parsons Blvd: F
         lines:
             - F
         borough: Queens
     Sutphin Blvd-Archer Av-JFK Airport:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.700488
+            long: -73.80774
+        edges:
+            Jamaica Center-Parsons-Archer: E
+            Jamaica-Van Wyck: E
+            JFK Airport: Airtrain JFK
+            121 St: [J,Z]
         lines:
             - E
             - J
@@ -3824,15 +3990,18 @@ Station:
         lines:
             - "7"
         borough: Queens
-    Woodhaven Blvd:
+    Woodhaven Blvd (J/Z):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.693622
+            long: -73.852158
+        edges:
+            104 St (J/Z): J
+            Crescent St: Z
         lines:
             - J
             - Z
         borough: Queens
-    Woodhaven Blvd:
+    Woodhaven Blvd (M/R):
         loc:
             lat: 0.0
             long: 0.0
@@ -3847,7 +4016,18 @@ Station:
         edges:
             Queensboro Plaza: "7d"
             LaGuardia Airport: Q47
+            34 St-Penn Station (1/2/3): LIRR
         lines:
             - "7"
             - "7d"
         borough: Queens
+    St. George:
+        loc:
+            lat: 40.6427017
+            long: -74.0799468
+        edges:
+            South Ferry/Whitehall St: Staten Island Ferry
+        lines:
+            - "Staten Island Ferry"
+            - "5"
+        borough: Staten Island
