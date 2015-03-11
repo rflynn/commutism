@@ -4,6 +4,7 @@
 from math import sqrt
 from pprint import pprint
 from itertools import takewhile, dropwhile, groupby, starmap
+from collections import defaultdict
 
 try:
     import networkx as nx
@@ -152,6 +153,34 @@ class SubwayEdge(object):
         if len(edges) == 1:
             return (edges[0].st1, edges[0].st2)
         return (edges[0].st1, edges[-1].st2)
+    @staticmethod
+    def vertical_cost_of_switching_lines(lfrom, lto, station_name):
+        # transferring from lfrom -> to, how many floors are in-between?
+        station = SubwayStations['Station'][station_name]
+        lfrom1 = list(lfrom)[0]
+        lto1 = list(lto)[0]
+        linefloormap = SubwayEdge.lines_to_station_floors(station)
+        if not linefloormap:
+            return None
+        fromlevel = station['layout'][list(linefloormap[lfrom1])[0]].get('level')
+        tolevel = station['layout'][list(linefloormap[lto1])[0]].get('level')
+        if fromlevel is None or tolevel is None:
+            return None
+        return abs(tolevel - fromlevel) # TODO: separate going up from going down
+    @staticmethod
+    def lines_to_station_floors(station=dict()):
+        # given a set of lines and a station.layout, map the lines to the floors
+        if not station.get('layout'):
+            return None
+        y = [[(k,f) for k in l.keys()]
+                for f,l in [(floor, lines['lines'])
+                    for floor, lines in station['layout'].items()
+                        if 'lines' in lines]]
+        d = defaultdict(set)
+        for floorlines in y:
+            for line, floor in floorlines:
+                d[line].add(floor)
+        return dict(d)
 
 class SubwayTrip(object):
     def __init__(self, person, path, start, goal):
@@ -160,7 +189,7 @@ class SubwayTrip(object):
         self.st2 = path[-1]
         self.start = start
         self.goal = goal
-        self.path = path#shortest_path(SubwayGraphX, source=st1, target=st2)
+        self.path = path
         self.route = list(starmap(SubwayEdge, zip(self.path, self.path[1:])))
         self.distance = sum(x.distance for x in self.route)
         self.route_by_line = self.calc_lines()
@@ -169,7 +198,9 @@ class SubwayTrip(object):
     def calc_lines(self):
         # given a possibly ambiguous route, converge contiguous runs of the same line
         # [(line, edges), ...]
-        lines = self.edges_by_line()
+        lines = [(l, list(e))
+                    for l, e in groupby(self.route,
+                                        lambda e: e.lines)]
         lg = []
         while lines:
             # segment route into contiguous runs of the same line, and swallow dupes
@@ -180,11 +211,6 @@ class SubwayTrip(object):
                 edges.extend(e)
             lg.append((line, edges))
         return lg
-
-    def edges_by_line(self):
-        return [(lines, list(edges))
-                    for lines, edges in groupby(self.route,
-                                                lambda e: e.lines)]
 
     def __eq__(self, other):
         return self.path == other.path
@@ -200,6 +226,8 @@ class SubwayTrip(object):
         self.dist_walk_to_first = latlongdist_walking(self.start, st1['loc'])
         time_walk_to_first = time_to_walk_in_seconds(self.person,
                                                      latlongdist_to_meters(self.dist_walk_to_first))
+        if st1.get('elevated'):
+            time_walk_to_first += 60 # FIXME: hack
         self.dist_walk_from_last = latlongdist_walking(st2['loc'], self.goal)
         time_walk_from_last = time_to_walk_in_seconds(self.person,
                                                       latlongdist_to_meters(self.dist_walk_from_last))
@@ -209,7 +237,29 @@ class SubwayTrip(object):
             + (len(self.route) * 30) # stops in station
         )
         time_changing_lines = self.line_change_count * 360
-        return time_walk_to_first + time_between_stations + time_changing_lines + time_walk_from_last
+        # TODO: save this data to an intermediary data structure so we can display a line item
+        time_changing_stations = self.time_changing_stations()
+        return (
+            time_walk_to_first
+            + time_between_stations
+            + time_changing_stations
+            + time_changing_lines
+            + time_walk_from_last
+        )
+    def time_changing_stations(self):
+        # take into account transfer cost within stations between lines
+        # TODO: take cost of walking up/down to first stations...
+        # on same line...
+        firstandlasts = [(line, stations[0], stations[-1])
+                            for line, stations in self.route_by_line]
+        transfers = [(x[0], y[0], x[2].st2)
+                        for x, y in zip(firstandlasts,
+                                        firstandlasts[1:])]
+        #print 'transfers:', transfers
+        costs = starmap(SubwayEdge.vertical_cost_of_switching_lines, transfers)
+        # 60 seconds per floor
+        return sum((c or 0) * 60 for c in costs)
+
     def format(self, condensed=False):
         print '    SubwayTrip (%s, %s, dist=%.3f, time_avg=%s, line_changes=%s)' % (
             self.st1, self.st2, self.distance, sec_to_min(self.time_avg()), self.line_change_count)
@@ -303,6 +353,7 @@ if __name__ == '__main__':
     _Court_Sq = {'lat': 40.747615, 'long': -73.945069}
     _Astoria_Blvd = {'lat': 40.769979, 'long': -73.918161}
     _Queensboro_Plaza = {'lat': 40.750653, 'long': -73.940344}
+    Queens_Plaza = {'lat': 40.748915, 'long': -73.937387}
     _36_Av = {'lat': 40.756555, 'long': -73.929791}
     _LaGuardia = {'lat': 40.77725, 'long': -73.872611}
     _Lorimer_Met_Av = {'lat': 40.712752, 'long': -73.951464}
@@ -339,6 +390,10 @@ if __name__ == '__main__':
 
     Parkchester = {'lat': 40.832937, 'long': -73.862758}
 
+    Hoboken_Terminal = {'lat': 40.7349, 'long': -74.0278}
+
+    Graham_Av = {'lat': 40.714509, 'long': -73.944426}
+
     print '--------------'
 
     #p = AggressiveWalkerProfile()
@@ -346,12 +401,14 @@ if __name__ == '__main__':
 
     #t = Trip(p, _171_Stanhope, _80_Broad_St)
     #t = Trip(p, _80_Broad_St, _171_Stanhope)
-    t = Trip(p, _80_Broad_St, _125_St)
+    #t = Trip(p, _80_Broad_St, _125_St)
     #t = Trip(p, _171_Stanhope, _125_St)
     #t = Trip(p, _80_Broad_St, _Columbus_Circle)
     #t = Trip(p, _Court_Sq, _125_St)
     #t = Trip(p, _Astoria_Blvd, _125_St)
-    #t = Trip(p, _Queensboro_Plaza, _125_St)
+    #t = Trip(p, _Queensboro_Plaza, _80_Broad_St)
+    #t = Trip(p, Queens_Plaza, _80_Broad_St)
+
     #t = Trip(p, _36_Av, _125_St)
     #t = Trip(p, _171_Stanhope, _LaGuardia)
     #t = Trip(p, _171_Stanhope, _125_St)
@@ -372,8 +429,6 @@ if __name__ == '__main__':
     #t = Trip(p, BryantPark, BarclaysCtr)
     #t = Trip(p, BryantPark, BrightonBeach)
 
-    #t = Trip(p, Foresthills71Av, _80_Broad_St)
-
     #t = Trip(p, Jamaica_179_St, _80_Broad_St) # FIXME: too slow, needs cutoff=15 since our graph is overly simplified as station-to-station when it should be based on line. ah well..
     #t = Trip(p, _75_Av, _80_Broad_St)
 
@@ -388,6 +443,12 @@ if __name__ == '__main__':
 
     #t = Trip(p, Times_Sq, _80_Broad_St)
     #t = Trip(p, Parkchester, _80_Broad_St)
+
+    #t = Trip(p, Hoboken_Terminal, _80_Broad_St)
+
+    t = Trip(p, Foresthills71Av, _80_Broad_St)
+    #t = Trip(p, _80_Broad_St, Foresthills71Av)
+    #t = Trip(p, _80_Broad_St, Graham_Av)
 
     t.format(condensed=True)
 

@@ -54,7 +54,9 @@ Travel Options:
 * Car rental (Hertz, Enterprise, etc)
 * Short-term car rental (ZipCar, Hertz 24/7, etc)
 * https://www.erideshare.com/carpool.php?dstate=NY
+* http://www.nywatertaxi.com/
 * http://www.nycgo.com/articles/nyc-transportation-getting-around
+* http://www.hubcab.org/#13.00/40.7272/-73.9303
 
 http://web.mta.info/developers/developer-data-terms.html#data
 
