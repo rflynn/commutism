@@ -172,8 +172,9 @@ class SubwayEdge(object):
         # given a set of lines and a station.layout, map the lines to the floors
         if not station.get('layout'):
             return None
+        #print station
         y = [[(k,f) for k in l.keys()]
-                for f,l in [(floor, lines['lines'])
+                for f,l in [(floor, lines.get('lines', {}))
                     for floor, lines in station['layout'].items()
                         if 'lines' in lines]]
         d = defaultdict(set)
@@ -221,6 +222,7 @@ class SubwayTrip(object):
         # walking is approximated on average walk speed
         # time between stations is approximated via avg train speed
         # switching lines inside a station complex is approximated
+        # TODO: treat out-of-system transfers as walking, not subway speed...
         st1 = SubwayStations['Station'][self.st1]
         st2 = SubwayStations['Station'][self.st2]
         self.dist_walk_to_first = latlongdist_walking(self.start, st1['loc'])
