@@ -56,7 +56,8 @@ def dotrack(response, uid):
 @app.route('/', methods=['GET'])
 def root():
     uid = req2uid(request)
-    resp = make_response(render_template('index.html'))
+    resp = make_response(render_template('index.html',
+                         latest_users=latest_users(dbx)))
     return dotrack(resp, uid)
 
 @app.route('/latency', methods=['GET'])
@@ -70,6 +71,19 @@ def map_():
     uid = req2uid(request)
     resp = make_response(render_template('map.html'))
     return dotrack(resp, uid)
+
+def latest_users(db):
+    c = db.cursor()
+    c.execute('''
+select distinct uid as uid, max(ts) as ts, count(*) as cnt
+from usertrack
+group by uid
+having count(*) > 1
+order by max(ts);
+''')
+    rows = c.fetchall()
+    c.close()
+    return rows
 
 def usertrack(db, request, uid):
     # interesting: iPhones will save up XMLHttpRequests and fire them off in batches
@@ -118,17 +132,20 @@ def get_user_since(db, uid):
 select ts, lat, long_, acc
 from usertrack
 where uid=?
-and ts >= strftime('%s','now') - (5*24*60*60)
+-- and ts >= strftime('%s','now') - (5*24*60*60) -- XXX: commented out, handy later
 ''', (uid,))
     rows = c.fetchall()
     c.close()
     return [[r['ts'], round(r['lat'], 6), round(r['long_'], 6), r['acc']]
                 for r in rows]
 
+# TODO: add page that allows selection of recent paths:
+# sqlite3 commutual.sqlite3 'select distinct uid, count(*) from usertrack group by uid having count(*) > 1 order by max(ts);'
+
 @app.route('/api/v0/me/today', methods=['GET'])
 def me_24hrs():
     uid = req2uid(request)
-    return jsonify(**{'p':get_user_since(dbx, request.args.get('uid', '3060004380151080232'))})
+    return jsonify(**{'p':get_user_since(dbx, request.args.get('uid', '3065451368030356068'))})
 
 if __name__ == '__main__':
     app.debug = True

@@ -32,7 +32,16 @@ function initialize() {
 
     {
     var req = new XMLHttpRequest();
+    var uid = undefined;
+    try {
+        uid = window.location.search.match(/uid=(\w+)/)[1];
+    } catch (e) {
+        console.error(e);
+    }
     var url = 'http://commutism.com:80/api/v0/me/today';
+    if (uid) {
+        url = url + '?uid=' + encodeURIComponent(uid);
+    }
     req.open('GET', url, true);
     req.onreadystatechange = function () {
         switch (req.readyState) {
@@ -88,6 +97,8 @@ function initialize() {
     req.send();
     }
 
+  /*
+  // NOTE: annoyingly simply running this steals the centering from the code above, which is more important
   // Try HTML5 geolocation
   if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -108,7 +119,7 @@ function initialize() {
     // Browser doesn't support Geolocation
     handleNoGeolocation(false);
   }
-
+  */
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
