@@ -36,7 +36,7 @@ def uid_points_get(uid, ts_from, ts_to=None):
 select strftime('%Y-%m-%d %H:%M:%S', ts - (60 * 60 * 5), 'unixepoch') as ts, lat, long_ as long, acc, round(speed, 6) as speed
 from usertrack
 where uid=?
-and acc < 800
+and acc <= 100
 and ts between ? and ?
 ''', (uid, ts_from, ts_to))
     rows = c.fetchall()
