@@ -6,6 +6,8 @@ from pprint import pprint
 from itertools import takewhile, dropwhile, groupby, starmap
 from collections import defaultdict
 
+# TODO: cutoff "stupid" paths that involve walking out and then taking the train back to where you started
+
 try:
     import networkx as nx
 except ImportError:
@@ -168,15 +170,16 @@ class SubwayEdge(object):
             return None
         return abs(tolevel - fromlevel) # TODO: separate going up from going down
     @staticmethod
-    def lines_to_station_floors(station=dict()):
+    def lines_to_station_floors(station):
         # given a set of lines and a station.layout, map the lines to the floors
+        station = station or dict()
         if not station.get('layout'):
             return None
-        #print station
+        #print 'station:', station
         y = [[(k,f) for k in l.keys()]
-                for f,l in [(floor, lines.get('lines', {}))
-                    for floor, lines in station['layout'].items()
-                        if 'lines' in lines]]
+                for f,l in [(floor, lines.get('lines', {}) if lines else {})
+                    for floor, lines in station.get('layout',{}).items()
+                        ]]
         d = defaultdict(set)
         for floorlines in y:
             for line, floor in floorlines:
@@ -396,12 +399,20 @@ if __name__ == '__main__':
 
     Graham_Av = {'lat': 40.714509, 'long': -73.944426}
 
+    Franklin_Av = {'lat': 40.681126, 'long': -73.955712}
+
+    South_Ferry = {'lat': 40.702472, 'long': -74.012833}
+
+    Lafayette_Av = {'lat': 40.686268, 'long': -73.974466}
+    Court_St_Borough_Hall = {'lat': 40.693655, 'long': -73.990216}
+
+
     print '--------------'
 
     #p = AggressiveWalkerProfile()
     p = PersonalProfile()
 
-    #t = Trip(p, _171_Stanhope, _80_Broad_St)
+    t = Trip(p, _171_Stanhope, _80_Broad_St)
     #t = Trip(p, _80_Broad_St, _171_Stanhope)
     #t = Trip(p, _80_Broad_St, _125_St)
     #t = Trip(p, _171_Stanhope, _125_St)
@@ -448,9 +459,14 @@ if __name__ == '__main__':
 
     #t = Trip(p, Hoboken_Terminal, _80_Broad_St)
 
-    t = Trip(p, Foresthills71Av, _80_Broad_St)
+    #t = Trip(p, Foresthills71Av, _80_Broad_St)
     #t = Trip(p, _80_Broad_St, Foresthills71Av)
     #t = Trip(p, _80_Broad_St, Graham_Av)
+
+    t = Trip(p, Franklin_Av, _80_Broad_St)
+    #t = Trip(p, Franklin_Av, _ResortsWorld)
+    #t = Trip(p, Lafayette_Av, Court_St_Borough_Hall)
+    #t = Trip(p, Franklin_Av, South_Ferry)
 
     t.format(condensed=True)
 

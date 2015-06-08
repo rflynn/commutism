@@ -667,6 +667,9 @@ Station:
             - G
             - R
         borough: Brooklyn
+        edges:
+            Union St: R
+            Smith-9 Sts: [F,G]
     45 St:
         loc:
             lat: 0.0
@@ -788,7 +791,8 @@ Station:
             long: -73.978758
         edges:
             Grand St (B/D): D
-            7 Av (B/Q): B
+            7 Av (B/Q): [B,Q]
+            Union St: R
         lines:
             - "2"
             - "3"
@@ -939,7 +943,7 @@ Station:
         lines:
             - G
         borough: Brooklyn
-    Bergen St:
+    Bergen St (2/3):
         loc:
             lat: 0.0
             long: 0.0
@@ -947,14 +951,17 @@ Station:
             - "2"
             - "3"
         borough: Brooklyn
-    Bergen St:
+    Bergen St (F/G):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.687253
+            long: -73.990006
         lines:
             - F
             - G
         borough: Brooklyn
+        edges:
+            Jay St-MetroTech: F
+            Carroll St: F
     Beverley Rd (Q):
         loc:
             lat: 0.0
@@ -1025,12 +1032,15 @@ Station:
         borough: Brooklyn
     Carroll St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.6802
+            long: -73.9948
         lines:
             - F
             - G
         borough: Brooklyn
+        edges:
+            Bergen St (F/G): [F,G]
+            Smith-9 Sts: [F,G]
     Central Av:
         loc:
             lat: 40.698015
@@ -1137,11 +1147,14 @@ Station:
         borough: Brooklyn
     Clinton-Washington Avs (C):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.683176
+            long: -73.965883
         lines:
             - C
         borough: Brooklyn
+        edges:
+            Franklin Av: C
+            Lafayette Av: C
     Clinton-Washington Avs (G):
         loc:
             lat: 40.688058
@@ -1181,6 +1194,10 @@ Station:
             - N
             - R
         borough: Brooklyn
+        edges:
+            Jay St-MetroTech: R
+            South Ferry/Whitehall St: R
+            Bowling Green: ["4","5"]
     Crescent St:
         loc:
             lat: 40.683665
@@ -1214,7 +1231,7 @@ Station:
             long: -73.982277
         edges:
             Grand St (B/D): B
-            Atlantic Av-Barclays Ctr: B
+            Atlantic Av-Barclays Ctr: [B,R]
         lines:
             - B
             - D
@@ -1325,17 +1342,23 @@ Station:
             #- "3"
             #- "4"
             #- "5"
-            #- S
+            #- S2
         #borough: Brooklyn
+        #edges:
+            #Park Pl: S2
+            #Prospect Park (B/Q/S): S2
     Franklin Av:
         loc:
             lat: 40.681126
             long: -73.955712
         lines:
-            - A
             - C
-            - S
+            - S2
         borough: Brooklyn
+        edges:
+            Nostrand Av (A/C): C
+            Clinton-Washington Avs (C): C
+            Park Pl: S2
     Fulton St (G):
         loc:
             lat: 40.686984
@@ -1461,7 +1484,9 @@ Station:
             long: -73.986142
         edges:
             Fulton St (G): G
-            Jay St-MetroTech: ["A","C"]
+            Jay St-MetroTech: [A,C]
+            Lafayette Av: C
+            Bergen St (F/G): G
         lines:
             - A
             - C
@@ -1472,8 +1497,11 @@ Station:
             lat: 40.693681
             long: -73.987233
         edges:
-            High St: ["A","C"]
-            Hoyt-Schermerhorn Sts: ["A","C"]
+            High St: [A,C]
+            Hoyt-Schermerhorn Sts: [A,C]
+            Court St/Borough Hall: R
+            Bergen St (F/G): F
+            York St: F
         lines:
             - A
             - C
@@ -1531,11 +1559,14 @@ Station:
         borough: Brooklyn
     Kingston-Throop Avs:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.679857
+            long: -73.940606
         lines:
             - C
         borough: Brooklyn
+        edges:
+            Nostrand Av (A/C): C
+            Utica Av: C
     Knickerbocker Av:
         loc:
             lat: 40.698731
@@ -1551,6 +1582,7 @@ Station:
         loc:
             lat: 40.693167
             long: -73.928633
+            elev: 19.0
         elevated: true # FIXME: hack
         edges:
             Myrtle Av: J
@@ -1560,11 +1592,14 @@ Station:
         borough: Brooklyn
     Lafayette Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.686268
+            long: -73.974466
         lines:
             - C
         borough: Brooklyn
+        edges:
+            Clinton-Washington Avs (C): C
+            Hoyt-Schermerhorn Sts: C
     Liberty Av:
         loc:
             lat: 40.674357
@@ -1610,9 +1645,9 @@ Station:
             lat: 40.708361
             long: -73.957944
         edges:
-            Delancey St/Essex St: ["J","M","Z"]
-            Hewes St: ["J","M"]
-            Myrtle Av: ["Z"]
+            Delancey St/Essex St: [J,M,Z]
+            Hewes St: [J,M]
+            Myrtle Av: [Z]
         lines:
             - J
             - M
@@ -1656,9 +1691,10 @@ Station:
             # ref: https://en.wikipedia.org/wiki/Myrtle_Avenue_(BMT_Jamaica_Line)#Station_layout
             "3F":
             "2F":
-                J:
-                M:
-                Z:
+                lines:
+                    J:
+                    M:
+                    Z:
             "1F":
                 Fare control:
                 Station agent:
@@ -1780,12 +1816,16 @@ Station:
         borough: Brooklyn
     Nostrand Av (A/C):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.680345
+            long: -73.949575
         lines:
             - A
             - C
         borough: Brooklyn
+        edges:
+            Franklin Av: C
+            Utica Av: A
+            Hoyt-Schermerhorn Sts: A
     Ocean Pkwy:
         loc:
             lat: 0.0
@@ -1795,11 +1835,14 @@ Station:
         borough: Brooklyn
     Park Pl:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.674357
+            long: -73.957858
         lines:
-            - S
+            - S2
         borough: Brooklyn
+        edges:
+            Franklin Av: S2
+            Franklin Av/Botanic Garden: S2
     Parkside Av:
         loc:
             lat: 0.0
@@ -1836,12 +1879,12 @@ Station:
             lat: 40.661507
             long: -73.962461
         edges:
-            Church Av (B/Q): B
-            7 Av (B/Q): B
+            Church Av (B/Q): [B,Q]
+            7 Av (B/Q): [B,Q]
         lines:
             - B
             - Q
-            - S
+            - S2
         borough: Brooklyn
     Ralph Av:
         loc:
@@ -1897,6 +1940,9 @@ Station:
             - F
             - G
         borough: Brooklyn
+        edges:
+            Bergen St (F/G): [F,G]
+            4 Av/9 St: [F,G]
     Sterling St:
         loc:
             lat: 0.0
@@ -1921,19 +1967,25 @@ Station:
         borough: Brooklyn
     Union St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.678108
+            long: -73.98391
         lines:
             - R
         borough: Brooklyn
+        edges:
+            4 Av/9 St: R
     Utica Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.679239
+            long: -73.929062
         lines:
             - A
             - C
         borough: Brooklyn
+        edges:
+            Broadway Junction: A
+            Nostrand Av (A/C): A
+            Kingston-Throop Avs: C
     Van Siclen Av (3):
         loc:
             lat: 0.0
@@ -1988,8 +2040,8 @@ Station:
             lat: 40.701529
             long: -73.986783
         edges:
-            Delancey St/Essex St: F
             Jay St-MetroTech: F
+            East Broadway: F
         lines:
             - F
         borough: Brooklyn
@@ -2822,6 +2874,8 @@ Station:
             lat: 0.0
             long: 0.0
         edges:
+            Prospect Park (B/Q/S): [B,Q]
+            Atlantic Av-Barclays Ctr: [B,Q]
         lines:
             - B
             - D
@@ -2971,8 +3025,8 @@ Station:
             lat: 40.720299
             long: -73.994079
         edges:
-            Brooklyn Bridge-City Hall/Chambers St: ["J","Z"]
-            Delancey St/Essex St: ["J","Z"]
+            Brooklyn Bridge-City Hall/Chambers St: [J,Z]
+            Delancey St/Essex St: [J,Z]
         lines:
             - J
             - Z
@@ -2981,6 +3035,7 @@ Station:
         loc:
             lat: 40.704106
             long: -74.014521
+            elev: 2.0
         edges:
             Wall St (4/5): ["4","5"]
             Court St/Borough Hall: ["4","5"]
@@ -2993,7 +3048,7 @@ Station:
             lat: 40.707059
             long: -74.01073
         edges:
-            Fulton St: ["J","Z"]
+            Fulton St: [J,Z]
         lines:
             - J
             - Z
@@ -3164,10 +3219,10 @@ Station:
             lat: 40.71851
             long: -73.988199
         edges:
-            Bowery: ["J","Z"]
-            Marcy Av: ["J","M","Z"]
+            Bowery: [J,Z]
+            Marcy Av: [J,M,Z]
             York St: F
-            2 Av: G
+            2 Av: F
         lines:
             - F
             - J
@@ -3190,11 +3245,14 @@ Station:
         borough: Manhattan
     East Broadway:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.714216
+            long: -73.990259
         lines:
             - F
         borough: Manhattan
+        edges:
+            York St: F
+            Delancey St/Essex St: F
     Franklin St:
         loc:
             lat: 40.71900
@@ -3497,6 +3555,7 @@ Station:
         edges:
             Rector St: "1"
             St. George: Staten Island Ferry
+            Court St/Borough Hall: R
         lines:
             - "1"
             - N
@@ -3764,7 +3823,7 @@ Station:
             lat: 40.752036
             long: -73.927903
         edges:
-            Queensboro Plaza: [M,R]
+            Queens Plaza: [M,R]
             Steinway St: [M,R]
         lines:
             - M
@@ -3842,8 +3901,11 @@ Station:
         borough: Queens
     69 St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.746258
+            long: -73.89685
+        edges:
+            Woodside-61 St: "7"
+            74-Bway Jackson Hts-Roosevelt Av: "7"
         lines:
             - "7"
         borough: Queens
@@ -3857,6 +3919,7 @@ Station:
             21 St-Queensbridge: F
             Forest Hills-71 Av: [E,F]
             65 St (M/R): [M,R]
+            69 St: "7"
         lines:
             - "7"
             - E
@@ -4287,7 +4350,8 @@ Station:
             long: -73.937387
         edges:
             74-Bway Jackson Hts-Roosevelt Av: E
-            Court Sq: E
+            Court Sq: [E,M]
+            36 St (M/R): [M,R]
         lines:
             - E
             - M
@@ -4303,7 +4367,6 @@ Station:
             33 St-Rawson St: "7"
             Woodside-61 St: "7d"
             59 St - Lexington Av/59 St: [N,Q]
-            36 St (M/R): [M,R]
         layout:
             "3F":
                 level: 3
@@ -4426,6 +4489,7 @@ Station:
             lat: 40.745608
             long: -73.902967
         edges:
+            69 St: "7"
             Queensboro Plaza: "7d"
             LaGuardia Airport: Q47
             34 St-Penn Station (1/2/3): LIRR
