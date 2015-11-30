@@ -649,7 +649,7 @@ Station:
         lines:
             - R
         borough: Brooklyn
-    36 St:
+    36 St (D/N/R):
         loc:
             lat: 40.65445
             long: -74.00455
@@ -658,10 +658,13 @@ Station:
             - N
             - R
         borough: Brooklyn
+        edges:
+            Atlantic Av-Barclays Ctr: R
+            59 St: R
     4 Av/9 St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.670956
+            long: -73.991397
         lines:
             - F
             - G
@@ -686,11 +689,12 @@ Station:
         borough: Brooklyn
     53 St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.643611
+            long: -74.015517
         lines:
             - R
         borough: Brooklyn
+        edges:
     55 St:
         loc:
             lat: 0.0
@@ -700,12 +704,15 @@ Station:
         borough: Brooklyn
     59 St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.641078
+            long: -74.018181
         lines:
             - N
             - R
         borough: Brooklyn
+        edges:
+            36 St (D/N/R): R
+            Bay Ridge Av: R
     7 Av (B/Q):
         loc:
             lat: 40.679352
@@ -732,13 +739,16 @@ Station:
         lines:
             - D
         borough: Brooklyn
-    77 St:
+    77 St (R):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.628497
+            long: -74.025936
         lines:
             - R
         borough: Brooklyn
+        edges:
+            Bay Ridge Av: R
+            86 St (R): R
     79 St:
         loc:
             lat: 0.0
@@ -753,20 +763,23 @@ Station:
         lines:
             - N
         borough: Brooklyn
-    86 St:
+    86 St (N):
         loc:
             lat: 0.0
             long: 0.0
         lines:
             - N
         borough: Brooklyn
-    86 St:
+    86 St (R):
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.622694
+            long: -74.028383
         lines:
             - R
         borough: Brooklyn
+        edges:
+            77 St (R): R
+            Bay Ridge-95 St: R
     9 Av:
         loc:
             lat: 0.0
@@ -793,6 +806,7 @@ Station:
             Grand St (B/D): D
             7 Av (B/Q): [B,Q]
             Union St: R
+            36 St (D/N/R): R
         lines:
             - "2"
             - "3"
@@ -911,18 +925,23 @@ Station:
         borough: Brooklyn
     Bay Ridge Av:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.633678
+            long: -74.023853
         lines:
             - R
         borough: Brooklyn
+        edges:
+            77 St (R): R
+            59 St: R
     Bay Ridge-95 St:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.615667
+            long: -74.031361
         lines:
             - R
         borough: Brooklyn
+        edges:
+            86 St: R
     Bedford Av:
         loc:
             lat: 40.71772
@@ -1333,20 +1352,20 @@ Station:
         lines:
             - N
         borough: Brooklyn
-    #Franklin Av/Botanic Garden:
-        #loc:
-            #lat: 40.670711
-            #long: -73.958545
-        #lines:
-            #- "2"
-            #- "3"
-            #- "4"
-            #- "5"
-            #- S2
-        #borough: Brooklyn
-        #edges:
-            #Park Pl: S2
-            #Prospect Park (B/Q/S): S2
+    Franklin Av/Botanic Garden:
+        loc:
+            lat: 40.670711
+            long: -73.958545
+        lines:
+            - "2"
+            - "3"
+            - "4"
+            - "5"
+            - S2
+        borough: Brooklyn
+        edges:
+            Park Pl: S2
+            Prospect Park (B/Q/S): S2
     Franklin Av:
         loc:
             lat: 40.681126
@@ -1934,8 +1953,8 @@ Station:
         borough: Brooklyn
     Smith-9 Sts:
         loc:
-            lat: 0.0
-            long: 0.0
+            lat: 40.67425
+            long: -73.996842
         lines:
             - F
             - G

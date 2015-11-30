@@ -463,10 +463,17 @@ if __name__ == '__main__':
     #t = Trip(p, _80_Broad_St, Foresthills71Av)
     #t = Trip(p, _80_Broad_St, Graham_Av)
 
-    t = Trip(p, Franklin_Av, _80_Broad_St)
+    #t = Trip(p, Franklin_Av, _80_Broad_St)
     #t = Trip(p, Franklin_Av, _ResortsWorld)
     #t = Trip(p, Lafayette_Av, Court_St_Borough_Hall)
     #t = Trip(p, Franklin_Av, South_Ferry)
+
+    Atlantic_Av_Barclays_Ctr = {
+        'lat': 40.684462,
+        'long': -73.978758
+    }
+    Bay_Ridge_95_St = {'lat': 40.615667, 'long': -74.031361}
+    t = Trip(p, Atlantic_Av_Barclays_Ctr, Bay_Ridge_95_St)
 
     t.format(condensed=True)
 
